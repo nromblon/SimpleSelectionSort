@@ -51,11 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/SimpleSelection/SelectionSort.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="51" column="45" selection-start-line="51" selection-end-line="51" selection-end-column="45" />
+            <state relative-caret-position="306">
+              <caret line="43" column="34" selection-start-line="39" selection-start-column="18" selection-end-line="54" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,11 +63,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/SimpleSelection/CsvParser.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/reusables/CsvParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+            <state relative-caret-position="153">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -93,23 +93,27 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/SimpleSelection/SimpleSelectionSort.java" />
         <option value="$PROJECT_DIR$/src/10000random" />
         <option value="$PROJECT_DIR$/10000random.csv" />
-        <option value="$PROJECT_DIR$/src/com/SimpleSelection/SelectionSort.java" />
         <option value="$PROJECT_DIR$/src/com/SimpleSelection/CsvParser.java" />
+        <option value="$PROJECT_DIR$/src/com/SimpleSelection/SelectionSort.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="360" />
-    <option name="y" value="7" />
+    <option name="x" value="86" />
+    <option name="y" value="18" />
     <option name="width" value="1750" />
     <option name="height" value="970" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -128,6 +132,19 @@
               <item name="SimpleSelectionSort" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SimpleSelectionSort" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleSelectionSort" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleSelectionSort" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleSelectionSort" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="SimpleSelection" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -137,7 +154,8 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540437908396" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540438500118" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -158,11 +176,11 @@
   </component>
   <component name="RunManager" selected="Application.CsvParser">
     <configuration name="CsvParser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.SimpleSelection.CsvParser" />
+      <option name="MAIN_CLASS_NAME" value="com.reusables.CsvParser" />
       <module name="SimpleSelectionSort" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.SimpleSelection.*" />
+          <option name="PATTERN" value="com.reusables.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -171,11 +189,11 @@
       </method>
     </configuration>
     <configuration name="SelectionSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.SimpleSelection.SelectionSort" />
+      <option name="MAIN_CLASS_NAME" value="com.main.SelectionSort" />
       <module name="SimpleSelectionSort" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.SimpleSelection.*" />
+          <option name="PATTERN" value="com.reusables.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -208,10 +226,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="288" y="6" width="1400" height="776" extended-state="0" />
-    <editor active="true" />
+    <frame x="69" y="15" width="1400" height="776" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25746268" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -251,20 +268,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/SimpleSelection/CsvParser.java">
+    <entry file="file://$PROJECT_DIR$/src/com/SimpleSelection/SelectionSort.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        <state relative-caret-position="306">
+          <caret line="43" column="34" selection-start-line="39" selection-start-column="18" selection-end-line="54" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/SimpleSelection/SelectionSort.java">
+    <entry file="file://$PROJECT_DIR$/src/com/reusables/CsvParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="51" column="45" selection-start-line="51" selection-end-line="51" selection-end-column="45" />
+        <state relative-caret-position="153">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
