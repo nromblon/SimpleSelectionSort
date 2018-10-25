@@ -2,7 +2,6 @@ package com.main;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.algorithm.parallel.ParallelSelectionSort;
 import com.algorithm.sequential.SequentialSelectionSort;
@@ -17,24 +16,29 @@ public class Driver {
 
         ParallelSelectionSort parallelSelectionSort = new ParallelSelectionSort();
         ArrayList<Integer> itemList = new ArrayList<Integer>();
-        itemList.add(5);
-        itemList.add(3);
-        itemList.add(1);
-        itemList.add(2);
-        itemList.add(4);
 
+        String filename = "10000random.csv";
+        itemList = CsvParser.read(filename);
+
+
+        Instant start = Instant.now();
         parallelSelectionSort.sort(itemList);
+        //TODO: Add wait until list is sorted.
+        Instant end = Instant.now();
+        long duration = Duration.between(start,end).toMillis();
+        System.out.println("List of size "+itemList.size()+" took "+duration+"ms to be sorted.");
     }
 
 	public static void runSequential(){
         String filename = "10000random.csv";
-        SequentialSelectionSort ob = new SequentialSelectionSort();
-        List<Integer> input = CsvParser.read(filename);
+        SequentialSelectionSort seq = new SequentialSelectionSort();
+        ArrayList<Integer> input = CsvParser.read(filename);
         Instant start = Instant.now();
-        ob.sort(input);
+        seq.sort(input);
         Instant end = Instant.now();
+
         System.out.println("Sorted array");
-        ob.printArray(input);
+        seq.printArray(input);
         long duration = Duration.between(start,end).toMillis();
         System.out.println("List of size "+input.size()+" took "+duration+"ms to be sorted.");
     }

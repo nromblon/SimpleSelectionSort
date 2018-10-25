@@ -1,11 +1,11 @@
 package com.algorithm.sequential;
 
-import java.util.List;
+import java.util.ArrayList;
 
 /* This code is adapted from Rajat Mishra's*/
 
 public class SequentialSelectionSort {
-    public void sort(List<Integer> list) {
+    public void sort(ArrayList<Integer> list) {
         int n = list.size();
 
         // One by one move boundary of unsorted sublistay
@@ -26,7 +26,7 @@ public class SequentialSelectionSort {
     }
 
     // Prints the array
-    public void printArray(List<Integer> arr)
+    public void printArray(ArrayList<Integer> arr)
     {
         int n = arr.size();
         for (int i=0; i<n; ++i)

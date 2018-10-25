@@ -9,11 +9,11 @@ import java.util.Scanner;
 
 public class CsvParser {
 
-    public static List<Integer> read(String fileName) {
+    public static ArrayList<Integer> read(String fileName) {
         File file= new File(fileName);
 
         // this gives you a 2-dimensional array of strings
-        List<Integer> lines = new ArrayList<>();
+        ArrayList<Integer> lines = new ArrayList<>();
         Scanner inputStream;
 
         try{
