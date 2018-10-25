@@ -1,6 +1,6 @@
 package com.algorithm.sequential;
 
-public class SelectionSort {
+public class SequentialSelectionSort {
     public void sort(int arr[]) { 
         int n = arr.length; 
   
