@@ -9,8 +9,8 @@ import com.reusables.CsvParser;
 
 public class Driver {
 	public static void main(String[] args) {
-	    runSequential();
-	    System.out.println("New");
+//	    runSequential();
+	    runParallel();
 	}
 
 	public static void runParallel(){
@@ -23,7 +23,7 @@ public class Driver {
 
 
         Instant start = Instant.now();
-        parallelSelectionSort.sort(itemList);
+        parallelSelectionSort.start(itemList, 2);
         //TODO: Add wait until list is sorted.
         Instant end = Instant.now();
         long duration = Duration.between(start,end).toMillis();

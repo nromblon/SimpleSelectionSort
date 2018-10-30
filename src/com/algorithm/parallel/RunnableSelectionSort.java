@@ -1,28 +1,33 @@
 package com.algorithm.parallel;
 
 import java.util.ArrayList;
-import java.util.List;
-
 import com.reusables.General;
 
 public class RunnableSelectionSort implements Runnable {
 	private Thread thread;
 	private String threadName;
 	private ArrayList<Integer> itemList;
-	
+
 	private int localMin;
 	private int startIndex;
 	private int endIndex;
 	
-	public RunnableSelectionSort(String name) {
+	private boolean isDone;
+	
+	public RunnableSelectionSort(String name, int startIndex, int endIndex) {
 		this.setThreadName(name);
+		this.setStartIndex(startIndex);
+		this.setEndIndex(endIndex);
+		this.setDone(false);
 	}
 	
 	/**
 	 * Thread start function.
 	 */
 	public void start(ArrayList<Integer> list) {
+		this.setDone(false);
 		General.PRINT(this.getClass().getSimpleName()+" start");
+		this.setItemList(list);
 		
 		if(this.getThread() == null) {
 			this.setThread(new Thread(this, this.getThreadName()));
@@ -33,7 +38,8 @@ public class RunnableSelectionSort implements Runnable {
 	@Override
 	public void run() {
 		General.PRINT(this.getClass().getSimpleName()+" run");
-		this.splitSelection(this.getItemList(), startIndex, endIndex);
+		this.setLocalMin(this.findLocalMinimum(this.getItemList(), startIndex, endIndex));
+		this.setDone(true);
 	}
 	
 	/**
@@ -43,7 +49,7 @@ public class RunnableSelectionSort implements Runnable {
 	 * @param end
 	 * @return
 	 */
-	public int splitSelection(ArrayList<Integer> list, int start, int end) {
+	public int findLocalMinimum(ArrayList<Integer> list, int start, int end) {
 		int localMin = start;
 		
 		for(int i = start+1; i < end; i++) {
@@ -96,6 +102,9 @@ public class RunnableSelectionSort implements Runnable {
 		return this.itemList;
 	}
 	
+	public void setItemList(ArrayList<Integer> list) {
+		this.itemList = list;
+	}
 	/**
 	 * Local minimum getter.
 	 * @return
@@ -142,5 +151,13 @@ public class RunnableSelectionSort implements Runnable {
 	 */
 	public void setEndIndex(int endIndex) {
 		this.endIndex = endIndex;
+	}
+
+	public boolean isDone() {
+		return isDone;
+	}
+
+	public void setDone(boolean isDone) {
+		this.isDone = isDone;
 	}
 }
