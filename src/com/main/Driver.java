@@ -10,6 +10,7 @@ import com.reusables.CsvParser;
 public class Driver {
 	public static void main(String[] args) {
 	    runSequential();
+	    System.out.println("New");
 	}
 
 	public static void runParallel(){
