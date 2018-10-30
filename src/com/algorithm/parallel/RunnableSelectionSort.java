@@ -40,6 +40,8 @@ public class RunnableSelectionSort implements Runnable {
 		General.PRINT(this.getClass().getSimpleName()+" run");
 		this.setLocalMin(this.findLocalMinimum(this.getItemList(), startIndex, endIndex));
 		this.setDone(true);
+		System.out.println("Done "+threadName);
+		this.getThread().interrupt();
 	}
 	
 	/**
@@ -58,6 +60,11 @@ public class RunnableSelectionSort implements Runnable {
 			}
 		}
 		return localMin;
+	}
+	
+	public void reset(int startIndex, int endIndex) {
+		this.setStartIndex(startIndex);
+		this.setEndIndex(endIndex);
 	}
 	
 	/**
