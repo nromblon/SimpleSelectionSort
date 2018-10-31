@@ -83,7 +83,6 @@ public class ParallelSelectionSort implements Runnable {
 		}
 		System.out.println("ALL DONE");
 		CsvWriter.write(this.getItemList());
-		General.PRINT(this.getItemList(), this.getItemList().size());
 	}
 	
 	public void swap(ArrayList<Integer> list, int index1, int index2) {
@@ -103,39 +102,14 @@ public class ParallelSelectionSort implements Runnable {
 		}
 		return index2;
 	}
+
 	/**
 	 * Returns an arraylist of indices from 0 to list count.
 	 * @param itemList
+	 * @param startIndex
 	 * @param splitCount
 	 * @return
 	 */
-//	public ArrayList<Integer> splitSelection(ArrayList<Integer> itemList, int splitCount) {
-//		ArrayList<Integer> splitIndices = new ArrayList<Integer>();
-//		int size = itemList.size()/splitCount;
-//		
-//		for(int i = 0; i < itemList.size(); i+=size) {
-//			splitIndices.add(i);
-//			System.out.println("splitIndex: "+i);
-//		}
-//		splitIndices.add(itemList.size());
-//		System.out.println("splitIndex: "+itemList.size());
-//		return splitIndices;
-//	}
-
-//	public ArrayList<Integer> splitSelection(ArrayList<Integer> itemList, int startIndex, int splitCount) {
-//		ArrayList<Integer> splitIndices = new ArrayList<Integer>();
-//		int size = (int)Math.floor(((double)itemList.size()-(double)startIndex)/(double)splitCount);
-//		System.out.println("SIZE: "+size);
-//		System.out.println("START: "+startIndex);
-//		for(int i = startIndex; i < (itemList.size()); i+=size) {
-//			splitIndices.add(i);
-//			System.out.println("splitIndex: "+i);
-//		}
-//		splitIndices.add(itemList.size());
-//		System.out.println("splitIndex: "+itemList.size());
-//		return splitIndices;
-//	}
-	
 	public ArrayList<Integer> splitSelection(ArrayList<Integer> itemList, int startIndex, int splitCount) {
 		ArrayList<Integer> splitIndices = new ArrayList<Integer>();
 		int size = (int)Math.floor(((double)itemList.size()-(double)startIndex)/(double)splitCount);
