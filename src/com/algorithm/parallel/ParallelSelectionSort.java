@@ -1,6 +1,8 @@
 package com.algorithm.parallel;
 
 import java.util.ArrayList;
+
+import com.reusables.CsvWriter;
 import com.reusables.General;
 
 public class ParallelSelectionSort implements Runnable {
@@ -80,6 +82,7 @@ public class ParallelSelectionSort implements Runnable {
 			swap(this.getItemList(), h, currentMin);
 		}
 		System.out.println("ALL DONE");
+		CsvWriter.write(this.getItemList());
 		General.PRINT(this.getItemList(), this.getItemList().size());
 	}
 	
