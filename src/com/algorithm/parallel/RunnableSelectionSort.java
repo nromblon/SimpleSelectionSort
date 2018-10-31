@@ -1,7 +1,6 @@
 package com.algorithm.parallel;
 
 import java.util.ArrayList;
-import com.reusables.General;
 
 public class RunnableSelectionSort implements Runnable {
 	private Thread thread;
@@ -41,7 +40,7 @@ public class RunnableSelectionSort implements Runnable {
 		this.setLocalMin(this.findLocalMinimum(this.getItemList(), startIndex, endIndex));
 		this.setDone(true);
 		// System.out.println("Done "+threadName);
-		this.getThread().interrupt();
+//		this.getThread().interrupt();
 	}
 	
 	/**
