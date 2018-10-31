@@ -11,7 +11,7 @@ public class General {
 	
 	
 	public static void PRINT_TIME() {
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss.SSS");
 		LocalDateTime now = LocalDateTime.now();
 		System.out.println(dtf.format(now));  
 	}

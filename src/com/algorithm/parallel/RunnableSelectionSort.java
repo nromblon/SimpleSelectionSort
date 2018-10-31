@@ -41,6 +41,7 @@ public class RunnableSelectionSort implements Runnable {
 		this.setDone(true);
 		// System.out.println("Done "+threadName);
 //		this.getThread().interrupt();
+		this.thread = null;
 	}
 	
 	/**

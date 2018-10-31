@@ -28,8 +28,8 @@ public class ParallelSelectionSort implements Runnable {
 		if(this.getThread() == null) {
 			this.setThreadName("ParallelSelectionSort");
 			this.setThread(new Thread(this, this.getThreadName()));
-			this.getThread().start();
 		}
+		this.getThread().start();
 	}
 	
 	
