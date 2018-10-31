@@ -9,7 +9,7 @@ import com.reusables.CsvParser;
 
 public class Driver {
 	public static void main(String[] args) {
-//	    runSequential();
+	    runSequential();
 	    runParallel();
 	}
 
@@ -27,7 +27,7 @@ public class Driver {
         //TODO: Add wait until list is sorted.
         Instant end = Instant.now();
         long duration = Duration.between(start,end).toMillis();
-        System.out.println("List of size "+itemList.size()+" took "+duration+"ms to be sorted.");
+        System.out.println("PARALLEL : List of size "+itemList.size()+" took "+duration+"ms to be sorted.");
     }
 
 	public static void runSequential(){
@@ -41,6 +41,6 @@ public class Driver {
         System.out.println("Sorted array");
         seq.printArray(input);
         long duration = Duration.between(start,end).toMillis();
-        System.out.println("List of size "+input.size()+" took "+duration+"ms to be sorted.");
+        System.out.println("SEQUENTIAL : List of size "+input.size()+" took "+duration+"ms to be sorted.");
     }
 }

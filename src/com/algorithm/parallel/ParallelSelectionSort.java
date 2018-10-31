@@ -51,7 +51,7 @@ public class ParallelSelectionSort implements Runnable {
 	
 	@Override
 	public void run() {
-		System.out.println("Process START");
+		System.out.println("PAR: Process START");
 		General.PRINT_TIME();
 		int currentMin = 0;
 		
@@ -84,7 +84,7 @@ public class ParallelSelectionSort implements Runnable {
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
 		}
-		System.out.println("Process DONE");
+		System.out.println("PAR: Process DONE");
 		General.PRINT_TIME();
 		CsvWriter.write(this.getItemList());
 	}
