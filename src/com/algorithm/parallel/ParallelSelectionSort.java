@@ -1,7 +1,6 @@
 package com.algorithm.parallel;
 
 import java.util.ArrayList;
-
 import com.reusables.General;
 
 public class ParallelSelectionSort implements Runnable {
@@ -63,9 +62,8 @@ public class ParallelSelectionSort implements Runnable {
 				isDone = runnableSelectionSortList.get(i).isDone();
 				while(!isDone) {
 					try {
-						thread.sleep((long)0.01);
+						Thread.sleep((long)0.01);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					isDone = runnableSelectionSortList.get(i).isDone();
