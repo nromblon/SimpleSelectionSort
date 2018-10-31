@@ -26,7 +26,7 @@ public class RunnableSelectionSort implements Runnable {
 	 */
 	public void start(ArrayList<Integer> list) {
 		this.setDone(false);
-		General.PRINT(this.getClass().getSimpleName()+" start");
+		// General.PRINT(this.getClass().getSimpleName()+" start");
 		this.setItemList(list);
 		
 		if(this.getThread() == null) {
@@ -37,10 +37,10 @@ public class RunnableSelectionSort implements Runnable {
 	
 	@Override
 	public void run() {
-		General.PRINT(this.getClass().getSimpleName()+" run");
+		// General.PRINT(this.getClass().getSimpleName()+" run");
 		this.setLocalMin(this.findLocalMinimum(this.getItemList(), startIndex, endIndex));
 		this.setDone(true);
-		System.out.println("Done "+threadName);
+		// System.out.println("Done "+threadName);
 		this.getThread().interrupt();
 	}
 	
