@@ -63,19 +63,12 @@ public class ParallelSelectionSort implements Runnable {
 			for(int i = 0; i < runnableSelectionSortList.size(); i++) {
 				// System.out.println("indices "+runnableSelectionSortList.get(i).getStartIndex()+" "+runnableSelectionSortList.get(i).getEndIndex());
 				isDone = runnableSelectionSortList.get(i).isDone();
-				while(!isDone) {
+				do {
 					isDone = runnableSelectionSortList.get(i).isDone();
 					if(isDone)
 						break;
-//					try {
-////						Thread.sleep((long)0.01);
-//						Thread.sleep((long)0.0);
-//					} catch (InterruptedException e) {
-//						e.printStackTrace();
-//					}
 					
-					
-				}
+				}while(!isDone);
 				// Thread 'i' confirmed as done
 				
 				
