@@ -11,9 +11,9 @@ public class Driver {
 	    // runSequential();
 	    // runParallel();
         runParallel_lambda();
-        System.out.println("\n\nStarting sequential...");
+//        System.out.println("\n\nStarting sequential...");
         runSequential();
-        System.out.println("\n\nStarting parallel standard...");
+//        System.out.println("\n\nStarting parallel standard...");
         runParallel();
 	}
 
