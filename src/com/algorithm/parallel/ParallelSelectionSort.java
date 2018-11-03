@@ -52,6 +52,7 @@ public class ParallelSelectionSort implements Runnable {
 	
 	@Override
 	public void run() {
+		System.out.println();
 		System.out.println("PAR: Process START");
 		Stopwatch.start();
 //		General.PRINT_TIME();

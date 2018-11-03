@@ -25,6 +25,7 @@ public class Driver {
         // String filename = "UnknownRandom.csv";
         itemList = CsvParser.read(filename);
 
+		System.out.println();
         pLambda.parallelSelectionSort(itemList,2);
     }
 

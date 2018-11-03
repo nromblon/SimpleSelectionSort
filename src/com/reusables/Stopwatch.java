@@ -24,6 +24,7 @@ public abstract class Stopwatch {
         end = Instant.now();
         long duration = Duration.between(start,end).toMillis();
         System.out.println("Stopped watch after "+duration+"ms.");
+		System.out.println();
         return duration;
     }
 
