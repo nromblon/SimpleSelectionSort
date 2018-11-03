@@ -37,6 +37,7 @@ public class RunnableSequentialSelectionSort implements Runnable {
 	public void run() {
 		System.out.println();
 		System.out.println("SEQ: Process START");
+		General.PRINT_TIME();
 		Stopwatch.start();
 //		General.PRINT_TIME();
         int n = list.size();
@@ -62,7 +63,7 @@ public class RunnableSequentialSelectionSort implements Runnable {
         } catch (Exception e){
             e.printStackTrace();
         }
-//		General.PRINT_TIME();
+		General.PRINT_TIME();
 	}
 
 	public ArrayList<Integer> getList() {

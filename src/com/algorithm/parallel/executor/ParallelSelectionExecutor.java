@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import com.reusables.CsvWriter;
+import com.reusables.General;
 import com.reusables.Stopwatch;
 
 public class ParallelSelectionExecutor implements Runnable {
@@ -31,7 +32,7 @@ public class ParallelSelectionExecutor implements Runnable {
 			this.setThread(new Thread(this, this.getThreadName()));
 		}
 		if(this.getExecutor() == null) {
-			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount+1);
+			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount);
 		}
 		this.getThread().start();
 	}
@@ -72,10 +73,12 @@ public class ParallelSelectionExecutor implements Runnable {
 		System.out.println();
 		System.out.println("PAR_EXEC: Process START");
 		Stopwatch.start();
-		int currentMin = 0;
 		
+		int currentMin = 0;
+
 		int size = itemList.size();
 		boolean isDone;
+		General.PRINT_TIME();
 		for(int h = 0; h < size; h++) {
 			this.reinitializeThreads(itemList, h, this.getSplitCount());
 			this.runThreads(this.getItemList());
@@ -102,12 +105,13 @@ public class ParallelSelectionExecutor implements Runnable {
 			swap(this.getItemList(), h, currentMin);
 		}
 		System.out.println("PAR_EXEC: Process DONE");
-
 		try {
 			Stopwatch.endAndPrint();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
+		General.PRINT_TIME();
+		this.executor.shutdown();
 		CsvWriter.write(this.getItemList());
 	}
 	
