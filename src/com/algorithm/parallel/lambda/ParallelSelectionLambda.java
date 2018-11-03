@@ -50,8 +50,8 @@ public class ParallelSelectionLambda {
                     nextIndex += 1;
 
                 int threadIndex = t, a = curIndex, b = nextIndex;
-
-                Runnable r = () -> splitSelection(list,a,b,threadIndex);
+                LambdaRunnable r = new LambdaRunnable(list,a,b,threadIndex,this);
+//                Runnable r = () -> splitSelection(list,a,b,threadIndex);
                 threads[t] = new Thread(r);
                 threads[t].start();
                 curIndex = nextIndex;
@@ -82,7 +82,7 @@ public class ParallelSelectionLambda {
         }
     }
 
-    private void splitSelection(ArrayList<Integer> list, int startIndex, int endIndex, int localMinIndex){
+    public void splitSelection(ArrayList<Integer> list, int startIndex, int endIndex, int localMinIndex){
         int local = startIndex;
 //        System.out.println("Starting thread: "+localMinIndex+" start: "+startIndex+" end: "+endIndex);
         for(int j = startIndex + 1; j < endIndex; j++){
@@ -99,23 +99,23 @@ public class ParallelSelectionLambda {
     }
 
     private void setLocalMin(int index, int val){
-        writeLock.lock();
+//        writeLock.lock();
 //        System.out.println("set local min write lock entered");
         localMins[index] = val;
-        writeLock.unlock();
+//        writeLock.unlock();
 //        System.out.println("set local min write lock released");
 
-        readLock.lock();
+//        readLock.lock();
 //        System.out.println("set local min read lock entered");
         //Check if all Local mins have been set
         for(int i = 0; i < localMins.length; i++){
             if(localMins[i] == -1){
-                readLock.unlock();
+//                readLock.unlock();
 //                System.out.println("set local min read lock released");
                 return;
             }
         }
-        readLock.unlock();
+//        readLock.unlock();
         synchronized (syncIter) {
 //            System.out.println("set local min read lock released :: All local minimum set");
             syncIter.notify();
