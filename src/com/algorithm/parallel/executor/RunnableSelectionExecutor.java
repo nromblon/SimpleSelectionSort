@@ -23,15 +23,16 @@ public class RunnableSelectionExecutor implements Runnable {
 	/**
 	 * Thread start function.
 	 */
-	public void start(ArrayList<Integer> list) {
+	public Runnable start(ArrayList<Integer> list) {
 		this.setDone(false);
 		// General.PRINT(this.getClass().getSimpleName()+" start");
 		this.setItemList(list);
 		
 		if(this.getThread() == null) {
 			this.setThread(new Thread(this, this.getThreadName()));
-			this.getThread().start();
+//			this.getThread().start();
 		}
+		return this.getThread();
 	}
 	
 	@Override

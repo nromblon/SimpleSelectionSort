@@ -1,8 +1,8 @@
 package com.algorithm.parallel.executor;
 
 import java.util.ArrayList;
-import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
 
 import com.reusables.CsvWriter;
 import com.reusables.Stopwatch;
@@ -18,22 +18,22 @@ public class ParallelSelectionExecutor implements Runnable {
 	private boolean flag2 = false;
 	private ArrayList<RunnableSelectionExecutor> runnableSelectionSortList;
 	private ArrayList<Integer> itemList;
-	
+	private ThreadPoolExecutor executor;
 	
 	/**
 	 * Thread start function.
 	 */
 	public void start(ArrayList<Integer> itemList, int splitCount) {
-//		General.PRINT(this.getClass().getSimpleName()+" start");
 		this.setItemList(itemList);
 		this.setSplitCount(splitCount);
-//		if(this.getThread() == null) {
-//			this.setThreadName("ParallelSelectionSort");
-//			this.setThread(new Thread(this, this.getThreadName()));
-//		}
-//		this.getThread().start();
-		Executor executor = Executors.newSingleThreadExecutor();
-		executor.execute(() -> System.out.println("Single thread"));
+		if(this.getThread() == null) {
+			this.setThreadName("ParallelSelectionSort");
+			this.setThread(new Thread(this, this.getThreadName()));
+		}
+		if(this.getExecutor() == null) {
+			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount+1);
+		}
+		this.getThread().start();
 	}
 	
 	
@@ -48,7 +48,8 @@ public class ParallelSelectionExecutor implements Runnable {
 	
 	public void runThreads(ArrayList<Integer> itemList) {
 		for(int i = 0; i < runnableSelectionSortList.size(); i++) {
-			this.runnableSelectionSortList.get(i).start(itemList);
+			this.getExecutor().execute(this.runnableSelectionSortList.get(i).start(itemList));
+//			this.runnableSelectionSortList.get(i).start(itemList);
 			// Log started thread here, or at thread 'run' function directly
 		}
 	}
@@ -56,9 +57,8 @@ public class ParallelSelectionExecutor implements Runnable {
 	@Override
 	public void run() {
 		System.out.println();
-		System.out.println("PAR: Process START");
+		System.out.println("PAR_EXEC: Process START");
 		Stopwatch.start();
-//		General.PRINT_TIME();
 		int currentMin = 0;
 		
 		int size = itemList.size();
@@ -88,9 +88,8 @@ public class ParallelSelectionExecutor implements Runnable {
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
 		}
-		System.out.println("PAR: Process DONE");
-//		General.PRINT_TIME();
-		
+		System.out.println("PAR_EXEC: Process DONE");
+
 		try {
 			Stopwatch.endAndPrint();
 		} catch (Exception e){
@@ -185,5 +184,15 @@ public class ParallelSelectionExecutor implements Runnable {
 
 	public void setSplitCount(int splitCount) {
 		this.splitCount = splitCount;
+	}
+
+
+	public ThreadPoolExecutor getExecutor() {
+		return executor;
+	}
+
+
+	public void setExecutor(ThreadPoolExecutor executor) {
+		this.executor = executor;
 	}
 }
