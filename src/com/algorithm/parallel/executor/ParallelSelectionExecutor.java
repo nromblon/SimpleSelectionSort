@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import com.reusables.CsvWriter;
+import com.reusables.General;
 import com.reusables.Stopwatch;
 
 public class ParallelSelectionExecutor implements Runnable {
@@ -20,18 +21,21 @@ public class ParallelSelectionExecutor implements Runnable {
 	private ArrayList<Integer> itemList;
 	private ThreadPoolExecutor executor;
 	
+	public ParallelSelectionExecutor() {
+		if(this.getThread() == null) {
+			this.setThreadName("ParallelSelectionSort");
+			this.setThread(new Thread(this, this.getThreadName()));
+		}
+	}
 	/**
 	 * Thread start function.
 	 */
 	public void start(ArrayList<Integer> itemList, int splitCount) {
 		this.setItemList(itemList);
 		this.setSplitCount(splitCount);
-		if(this.getThread() == null) {
-			this.setThreadName("ParallelSelectionSort");
-			this.setThread(new Thread(this, this.getThreadName()));
-		}
+		
 		if(this.getExecutor() == null) {
-			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount+1);
+			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount);
 		}
 		this.getThread().start();
 	}
@@ -70,12 +74,14 @@ public class ParallelSelectionExecutor implements Runnable {
 	@Override
 	public void run() {
 		System.out.println();
-		System.out.println("PAR_EXEC: Process START");
+//		System.out.println("PAR_EXEC: Process START");
 		Stopwatch.start();
-		int currentMin = 0;
 		
+		int currentMin = 0;
+
 		int size = itemList.size();
 		boolean isDone;
+//		General.PRINT_TIME();
 		for(int h = 0; h < size; h++) {
 			this.reinitializeThreads(itemList, h, this.getSplitCount());
 			this.runThreads(this.getItemList());
@@ -83,6 +89,7 @@ public class ParallelSelectionExecutor implements Runnable {
 				// System.out.println("indices "+runnableSelectionSortList.get(i).getStartIndex()+" "+runnableSelectionSortList.get(i).getEndIndex());
 				isDone = runnableSelectionSortList.get(i).isDone();
 				do {
+//					System.out.println("!!");
 					isDone = runnableSelectionSortList.get(i).isDone();
 					if(isDone)
 						break;
@@ -102,12 +109,13 @@ public class ParallelSelectionExecutor implements Runnable {
 			swap(this.getItemList(), h, currentMin);
 		}
 		System.out.println("PAR_EXEC: Process DONE");
-
 		try {
 			Stopwatch.endAndPrint();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
+		General.PRINT_TIME();
+		this.executor.shutdown();
 		CsvWriter.write(this.getItemList());
 	}
 	

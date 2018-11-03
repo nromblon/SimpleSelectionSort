@@ -8,8 +8,8 @@ import com.algorithm.sequential.RunnableSequentialSelectionSort;
 import com.reusables.CsvParser;
 
 public class Driver {
-	private static String filename = "10000random.csv";
-//	private static String filename = "UnknownRandom.csv";
+//	private static String filename = "10000random.csv";
+	private static String filename = "UnknownRandom.csv";
 	
 	public static void main(String[] args) {
 //        runParallel_lambda();
