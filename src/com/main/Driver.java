@@ -4,15 +4,33 @@ import java.time.Instant;
 import java.util.ArrayList;
 
 import com.algorithm.parallel.ParallelSelectionSort;
+import com.algorithm.parallel.lambda.ParallelSelectionLambda;
 import com.algorithm.sequential.RunnableSequentialSelectionSort;
 import com.algorithm.sequential.SequentialSelectionSort;
 import com.reusables.CsvParser;
+import com.reusables.Stopwatch;
 
 public class Driver {
 	public static void main(String[] args) {
-	    runSequential();
-	    runParallel();
+	    // runSequential();
+	    // runParallel();
+        runParallel_lambda();
+        System.out.println("\n\nStarting sequential...");
+        runSequential();
+        System.out.println("\n\nStarting parallel standard...");
+        runParallel();
 	}
+
+	public static void runParallel_lambda(){
+        ParallelSelectionLambda pLambda = new ParallelSelectionLambda();
+        ArrayList<Integer> itemList = new ArrayList<Integer>();
+
+        String filename = "10000random.csv";
+        // String filename = "UnknownRandom.csv";
+        itemList = CsvParser.read(filename);
+
+        pLambda.parallelSelectionSort(itemList,2);
+    }
 
 	public static void runParallel(){
 
@@ -28,8 +46,8 @@ public class Driver {
         parallelSelectionSort.start(itemList, 2);
         //TODO: Add wait until list is sorted.
         Instant end = Instant.now();
-        long duration = Duration.between(start,end).toMillis();
-//        System.out.println("PARALLEL : List of size "+itemList.size()+" took "+duration+"ms to be sorted.");
+        long duration = Duration.between(start,end).toNanos();
+//        System.out.println("PARALLEL : List of size "+itemList.size()+" took "+duration+"ns to be sorted.");
     }
 
 	public static void runSequential(){
@@ -39,12 +57,19 @@ public class Driver {
         ArrayList<Integer> input = CsvParser.read(filename);
         Instant start = Instant.now();
 //        seq.sort(input);
+        Stopwatch.start();
         runSeq.start(input);
+
+        try {
+            Stopwatch.endAndPrint();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
         Instant end = Instant.now();
 
 //        System.out.println("Sorted array");
 //        seq.printArray(input);
-        long duration = Duration.between(start,end).toMillis();
-//        System.out.println("SEQUENTIAL : List of size "+input.size()+" took "+duration+"ms to be sorted.");
+        long duration = Duration.between(start,end).toNanos();
+        System.out.println("SEQUENTIAL : List of size "+input.size()+" took "+duration+"ns to be sorted.");
     }
 }
