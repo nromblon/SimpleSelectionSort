@@ -6,15 +6,34 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public abstract class Stopwatch {
+    final static String defaultName = "RUN_";
+    static int runCount = 0;
+
     static Queue<Instant> startQueue;
+    static Queue<String> names;
 //    static Instant start;
     static Instant end;
 
+    public static void start(String name){
+        Instant start = Instant.now();
+        if(startQueue == null) {
+            startQueue = new ConcurrentLinkedQueue<>();
+            names = new ConcurrentLinkedQueue<>();
+        }
+        startQueue.add(start);
+        names.add(name);
+        runCount++;
+    }
+
     public static void start(){
         Instant start = Instant.now();
-        if(startQueue == null)
+        if(startQueue == null) {
             startQueue = new ConcurrentLinkedQueue<>();
+            names = new ConcurrentLinkedQueue<>();
+        }
         startQueue.add(start);
+        names.add(defaultName+runCount);
+        runCount++;
     }
 
     public static long end() throws Exception{
@@ -30,8 +49,9 @@ public abstract class Stopwatch {
             throw new Exception("Stopwatch has not been started yet!");
         end = Instant.now();
         Instant start = startQueue.poll();
+        String name = names.poll();
         long duration = Duration.between(start,end).toMillis();
-        System.out.println("Stopped watch after "+duration+"ms.");
+        System.out.println("Stopped watch for process '"+name+"' after "+duration+"ms.");
 		System.out.println();
         return duration;
     }

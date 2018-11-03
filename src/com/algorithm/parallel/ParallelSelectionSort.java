@@ -54,7 +54,7 @@ public class ParallelSelectionSort implements Runnable {
 	public void run() {
 		System.out.println();
 		System.out.println("PAR: Process START");
-		Stopwatch.start();
+		Stopwatch.start("Parallel standard");
 //		General.PRINT_TIME();
 		int currentMin = 0;
 		

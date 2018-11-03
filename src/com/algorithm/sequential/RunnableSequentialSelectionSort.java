@@ -38,7 +38,7 @@ public class RunnableSequentialSelectionSort implements Runnable {
 //		System.out.println();
 //		System.out.println("SEQ: Process START");
 //		General.PRINT_TIME();
-		Stopwatch.start();
+		Stopwatch.start("Sequential selection");
 //		General.PRINT_TIME();
         int n = list.size();
         // One by one move boundary of unsorted sublistay

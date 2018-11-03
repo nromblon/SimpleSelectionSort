@@ -14,7 +14,7 @@ public class Driver {
 	public static void main(String[] args) {
 //        runParallel_lambda();
 //        System.out.println("\n\nStarting sequential...");
-//        runSequential();
+        runSequential();
 //        System.out.println("\n\nStarting parallel standard...");
 //        runParallel();
         runParallel_executor();
@@ -22,7 +22,7 @@ public class Driver {
 
 	public static void runParallel_lambda(){
         ParallelSelectionLambda pLambda = new ParallelSelectionLambda();
-        ArrayList<Integer> itemList = new ArrayList<Integer>();
+        ArrayList<Integer> itemList;
 
         itemList = CsvParser.read(filename);
 
@@ -32,7 +32,7 @@ public class Driver {
 	public static void runParallel_executor(){
 
         ParallelSelectionExecutor parallelSelectionExecutor = new ParallelSelectionExecutor();
-        ArrayList<Integer> itemList = new ArrayList<Integer>();
+        ArrayList<Integer> itemList;
 
         itemList = CsvParser.read(filename);
         parallelSelectionExecutor.start(itemList, 2);
@@ -40,7 +40,7 @@ public class Driver {
 	public static void runParallel(){
 
         ParallelSelectionSort parallelSelectionSort = new ParallelSelectionSort();
-        ArrayList<Integer> itemList = new ArrayList<Integer>();
+        ArrayList<Integer> itemList;
 
         itemList = CsvParser.read(filename);
         parallelSelectionSort.start(itemList, 2);
