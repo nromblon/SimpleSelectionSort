@@ -35,7 +35,7 @@ public class Driver {
         ArrayList<Integer> itemList = new ArrayList<Integer>();
 
         itemList = CsvParser.read(filename);
-        parallelSelectionExecutor.start(itemList, 7);
+        parallelSelectionExecutor.start(itemList, 2);
     }
 	public static void runParallel(){
 
