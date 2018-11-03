@@ -18,6 +18,8 @@ public class RunnableSelectionExecutor implements Runnable {
 		this.setStartIndex(startIndex);
 		this.setEndIndex(endIndex);
 		this.setDone(false);
+		
+		this.setThread(new Thread(this, this.getThreadName()));
 	}
 	
 	/**
@@ -29,7 +31,7 @@ public class RunnableSelectionExecutor implements Runnable {
 		this.setItemList(list);
 		
 		if(this.getThread() == null) {
-			this.setThread(new Thread(this, this.getThreadName()));
+//			this.setThread(new Thread(this, this.getThreadName()));
 //			this.getThread().start();
 		}
 		return this.getThread();
@@ -41,7 +43,7 @@ public class RunnableSelectionExecutor implements Runnable {
 		this.setLocalMin(this.findLocalMinimum(this.getItemList(), startIndex, endIndex));
 		// System.out.println("Done "+threadName);
 //		this.getThread().interrupt();
-		this.thread = null;
+//		this.thread = null;
 		this.setDone(true);
 	}
 	
