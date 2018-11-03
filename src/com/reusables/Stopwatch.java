@@ -2,26 +2,34 @@ package com.reusables;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 public abstract class Stopwatch {
-    static Instant start;
+    static Queue<Instant> startQueue;
+//    static Instant start;
     static Instant end;
 
     public static void start(){
-        start = Instant.now();
+        Instant start = Instant.now();
+        if(startQueue == null)
+            startQueue = new ConcurrentLinkedQueue<>();
+        startQueue.add(start);
     }
 
     public static long end() throws Exception{
-        if(start == null)
+        if(startQueue.isEmpty())
             throw new Exception("Stopwatch has not been started yet!");
         end = Instant.now();
+        Instant start = startQueue.poll();
         return Duration.between(start,end).toMillis();
     }
 
     public static long endAndPrint() throws Exception{
-        if(start == null)
+        if(startQueue.isEmpty())
             throw new Exception("Stopwatch has not been started yet!");
         end = Instant.now();
+        Instant start = startQueue.poll();
         long duration = Duration.between(start,end).toMillis();
         System.out.println("Stopped watch after "+duration+"ms.");
 		System.out.println();
@@ -29,7 +37,7 @@ public abstract class Stopwatch {
     }
 
     public static void reset(){
-        start = null;
+        startQueue.clear();
         end = null;
     }
 }
