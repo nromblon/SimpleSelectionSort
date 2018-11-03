@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.reusables.CsvWriter;
 import com.reusables.General;
+import com.reusables.Stopwatch;
 
 public class ParallelSelectionSort implements Runnable {
 	private Thread thread;
@@ -52,7 +53,8 @@ public class ParallelSelectionSort implements Runnable {
 	@Override
 	public void run() {
 		System.out.println("PAR: Process START");
-		General.PRINT_TIME();
+		Stopwatch.start();
+//		General.PRINT_TIME();
 		int currentMin = 0;
 		
 		int size = itemList.size();
@@ -83,7 +85,13 @@ public class ParallelSelectionSort implements Runnable {
 			swap(this.getItemList(), h, currentMin);
 		}
 		System.out.println("PAR: Process DONE");
-		General.PRINT_TIME();
+//		General.PRINT_TIME();
+		
+		try {
+			Stopwatch.endAndPrint();
+		} catch (Exception e){
+			e.printStackTrace();
+		}
 		CsvWriter.write(this.getItemList());
 	}
 	

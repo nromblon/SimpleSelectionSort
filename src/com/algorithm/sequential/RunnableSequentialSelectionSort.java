@@ -3,6 +3,7 @@ package com.algorithm.sequential;
 import java.util.ArrayList;
 
 import com.reusables.General;
+import com.reusables.Stopwatch;
 
 /* This code is adapted from Rajat Mishra's*/
 
@@ -35,7 +36,8 @@ public class RunnableSequentialSelectionSort implements Runnable {
 	@Override
 	public void run() {
 		System.out.println("SEQ: Process START");
-		General.PRINT_TIME();
+		Stopwatch.start();
+//		General.PRINT_TIME();
         int n = list.size();
         // One by one move boundary of unsorted sublistay
         for (int i = 0; i < n-1; i++) {
@@ -54,7 +56,12 @@ public class RunnableSequentialSelectionSort implements Runnable {
         }
         
         System.out.println("SEQ: Process DONE");
-		General.PRINT_TIME();
+        try {
+            Stopwatch.endAndPrint();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+//		General.PRINT_TIME();
 	}
 
 	public ArrayList<Integer> getList() {
