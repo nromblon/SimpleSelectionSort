@@ -45,7 +45,20 @@ public class ParallelSelectionExecutor implements Runnable {
 			this.runnableSelectionSortList.add(new RunnableSelectionExecutor("rSS "+i, splitSelection.get(i), splitSelection.get(i+1)));
 		}
 	}
-	
+	public void reinitializeThreads(ArrayList<Integer> itemList, int startIndex, int splitCount) {
+		
+		if(this.runnableSelectionSortList == null || this.runnableSelectionSortList.size() == 0) {
+			this.initializeThreads(itemList, startIndex, splitCount);
+		}
+		else {
+			ArrayList<Integer> splitSelection = this.splitSelection(itemList, startIndex, splitCount);
+			 // System.out.println("split selection size "+splitSelection.size());
+			for(int i = 0; i < splitCount; i++) {
+				this.runnableSelectionSortList.get(i).reset(splitSelection.get(i), splitSelection.get(i+1));
+//				(new RunnableSelectionExecutor("rSS "+i, splitSelection.get(i), splitSelection.get(i+1)));
+			}
+		}
+	}
 	public void runThreads(ArrayList<Integer> itemList) {
 		for(int i = 0; i < runnableSelectionSortList.size(); i++) {
 			this.getExecutor().execute(this.runnableSelectionSortList.get(i).start(itemList));
@@ -64,7 +77,7 @@ public class ParallelSelectionExecutor implements Runnable {
 		int size = itemList.size();
 		boolean isDone;
 		for(int h = 0; h < size; h++) {
-			this.initializeThreads(itemList, h, this.getSplitCount());
+			this.reinitializeThreads(itemList, h, this.getSplitCount());
 			this.runThreads(this.getItemList());
 			for(int i = 0; i < runnableSelectionSortList.size(); i++) {
 				// System.out.println("indices "+runnableSelectionSortList.get(i).getStartIndex()+" "+runnableSelectionSortList.get(i).getEndIndex());
