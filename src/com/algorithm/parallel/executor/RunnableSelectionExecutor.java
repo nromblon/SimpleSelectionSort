@@ -1,7 +1,5 @@
 package com.algorithm.parallel.executor;
 
-import com.sun.org.apache.xpath.internal.operations.Mult;
-
 import java.util.ArrayList;
 
 public class RunnableSelectionExecutor implements Runnable {
@@ -14,8 +12,6 @@ public class RunnableSelectionExecutor implements Runnable {
 	private int endIndex;
 	
 	private boolean isDone;
-
-	private MultithreadMonitor monitor;
 	
 	public RunnableSelectionExecutor(String name, int startIndex, int endIndex) {
 		this.setThreadName(name);
@@ -175,11 +171,5 @@ public class RunnableSelectionExecutor implements Runnable {
 
 	public void setDone(boolean isDone) {
 		this.isDone = isDone;
-		if(isDone)
-			this.monitor.setDone(this,true);
-	}
-
-	public void setMonitor(MultithreadMonitor monitor){
-		this.monitor = monitor;
 	}
 }

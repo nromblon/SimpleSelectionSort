@@ -1,6 +1,5 @@
 package com.algorithm.parallel.executor;
 
-import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -15,7 +14,6 @@ public class ParallelSelectionExecutor implements Runnable {
 	
 	private int splitCount;
 
-	private MultithreadMonitor monitor;
 
 	private boolean flag1 = false;
 	private boolean flag2 = false;
@@ -86,38 +84,16 @@ public class ParallelSelectionExecutor implements Runnable {
 		boolean isDone;
 //		General.PRINT_TIME();
 		for(int h = 0; h < size; h++) {
-			// initialize threads
 			this.reinitializeThreads(itemList, h, this.getSplitCount());
-
-			// initialize monitor
-			this.monitor = new MultithreadMonitor(runnableSelectionSortList);
-
-			// run threads
 			this.runThreads(this.getItemList());
-
-			// Block thread until subthreads are done
-			synchronized (monitor){
-				try{
-//					System.out.println("waiting");
-					monitor.wait();
-				} catch (InterruptedException e){
-					e.printStackTrace();
-				}
-			}
-//			System.out.println("finished waiting");
-
-			// find the local minimum
-			for(int i = 0; i < runnableSelectionSortList.size(); i++){
-				int localMinIndex = runnableSelectionSortList.get(i).getLocalMin();
-				currentMin = getMinimum(localMinIndex,currentMin);
-			}
-			/*// Check if threads are done
 			for(int i = 0; i < runnableSelectionSortList.size(); i++) {
 				// System.out.println("indices "+runnableSelectionSortList.get(i).getStartIndex()+" "+runnableSelectionSortList.get(i).getEndIndex());
 				isDone = runnableSelectionSortList.get(i).isDone();
 				do {
 //					System.out.println("!!");
 					isDone = runnableSelectionSortList.get(i).isDone();
+					if(isDone)
+						break;
 					
 				}while(!isDone);
 				// Thread 'i' confirmed as done
@@ -129,7 +105,7 @@ public class ParallelSelectionExecutor implements Runnable {
 				else {
 					currentMin = getMinimum(currentMin, runnableSelectionSortList.get(i).getLocalMin());
 				}				
-			}*/
+			}
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
 		}

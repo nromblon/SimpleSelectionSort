@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd7a1b84-e447-404d-b5b8-92262886c3a1" name="Default Changelist" comment="Merge branch 'master' of https://github.com/nromblon/SimpleSelectionSort&#10;&#10;# Conflicts:&#10;#&#9;out/production/SimpleSelectionSort/com/main/Driver.class">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleSelectionSort/com/algorithm/parallel/ParallelSelectionSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleSelectionSort/com/algorithm/parallel/ParallelSelectionSort.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/SimpleSelectionSort/com/main/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleSelectionSort/com/main/Driver.class" afterDir="false" />
@@ -11,6 +12,10 @@
       <change beforePath="$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/main/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/main/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/reusables/Stopwatch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/reusables/Stopwatch.java" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java" afterDir="false" />
+>>>>>>> parent of 7e5f8bc... workin executor
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,14 +46,23 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="10000random" value="1" />
+<<<<<<< HEAD
           <entry key="csv" value="2" />
           <entry key="java" value="32" />
+=======
+          <entry key="csv" value="1" />
+          <entry key="java" value="24" />
+>>>>>>> parent of 7e5f8bc... workin executor
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
           <entry key="CSV" value="1" />
           <entry key="JAVA" value="32" />
+=======
+          <entry key="JAVA" value="24" />
+>>>>>>> parent of 7e5f8bc... workin executor
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -56,12 +70,20 @@
         <counts>
           <entry key="10000random" value="1" />
           <entry key="dummy" value="27" />
+<<<<<<< HEAD
           <entry key="java" value="7682" />
+=======
+          <entry key="java" value="5245" />
+>>>>>>> parent of 7e5f8bc... workin executor
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
           <entry key="JAVA" value="7682" />
+=======
+          <entry key="JAVA" value="5245" />
+>>>>>>> parent of 7e5f8bc... workin executor
           <entry key="PLAIN_TEXT" value="28" />
         </counts>
       </usages-collector>
@@ -71,10 +93,24 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/reusables/CsvWriter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="307">
               <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+=======
+            <state relative-caret-position="213">
+              <caret line="49" column="61" lean-forward="true" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
+>>>>>>> parent of 7e5f8bc... workin executor
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,66 +121,57 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="194">
               <caret line="44" column="39" lean-forward="true" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+=======
+            <state relative-caret-position="245">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+>>>>>>> parent of 7e5f8bc... workin executor
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java">
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
+>>>>>>> parent of 7e5f8bc... workin executor
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="325">
-              <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
+            <state relative-caret-position="209">
+              <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3453#3454#0" expanded="true" />
-                <element signature="e#3480#3481#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="245">
               <caret line="41" column="42" selection-start-line="41" selection-start-column="42" selection-end-line="41" selection-end-column="42" />
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+>>>>>>> parent of 7e5f8bc... workin executor
               <folding>
-                <element signature="e#5824#5825#0" expanded="true" />
-                <element signature="e#5848#5849#0" expanded="true" />
-                <element signature="e#5897#5898#0" expanded="true" />
-                <element signature="e#5932#5933#0" expanded="true" />
-                <element signature="e#5962#5963#0" expanded="true" />
-                <element signature="e#5982#5983#0" expanded="true" />
-                <element signature="e#6023#6024#0" expanded="true" />
-                <element signature="e#6050#6051#0" expanded="true" />
-                <element signature="e#6079#6080#0" expanded="true" />
-                <element signature="e#6098#6099#0" expanded="true" />
-                <element signature="e#6138#6139#0" expanded="true" />
-                <element signature="e#6163#6164#0" expanded="true" />
-                <element signature="e#6192#6193#0" expanded="true" />
-                <element signature="e#6211#6212#0" expanded="true" />
-                <element signature="e#6251#6252#0" expanded="true" />
-                <element signature="e#6276#6277#0" expanded="true" />
-                <element signature="e#6320#6321#0" expanded="true" />
-                <element signature="e#6342#6343#0" expanded="true" />
-                <element signature="e#6399#6400#0" expanded="true" />
-                <element signature="e#6430#6431#0" expanded="true" />
-                <element signature="e#6460#6461#0" expanded="true" />
-                <element signature="e#6484#6485#0" expanded="true" />
-                <element signature="e#6530#6531#0" expanded="true" />
-                <element signature="e#6565#6566#0" expanded="true" />
-                <element signature="e#6610#6611#0" expanded="true" />
-                <element signature="e#6632#6633#0" expanded="true" />
-                <element signature="e#6690#6691#0" expanded="true" />
-                <element signature="e#6721#6722#0" expanded="true" />
+                <element signature="e#582#583#0" expanded="true" />
+                <element signature="e#603#604#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/ParallelSelectionSort.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
@@ -182,15 +209,62 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
               <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+=======
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="107">
+              <caret line="421" selection-start-line="421" selection-end-line="421" />
+              <folding>
+                <element signature="e#15631#15632#0" expanded="true" />
+              </folding>
+>>>>>>> parent of 7e5f8bc... workin executor
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
+        <entry file="file://$PROJECT_DIR$/src/com/reusables/Stopwatch.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/reusables/General.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="544">
+              <caret line="38" column="5" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/reusables/CsvParser.java">
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="244">
               <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+=======
+            <state relative-caret-position="102">
+              <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/ParallelSelectionSort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+>>>>>>> parent of 7e5f8bc... workin executor
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -234,6 +308,7 @@
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/RunnableSelectionSort.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/sequential/SequentialSelectionSort.java" />
         <option value="$PROJECT_DIR$/src/com/reusables/CsvWriter.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/MultithreadMonitor.java" />
@@ -243,14 +318,15 @@
         <option value="$PROJECT_DIR$/src/com/reusables/Stopwatch.java" />
         <option value="$PROJECT_DIR$/src/com/main/Driver.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java" />
+=======
+        <option value="$PROJECT_DIR$/src/com/algorithm/parallel/ParallelSelectionSort.java" />
+        <option value="$PROJECT_DIR$/src/com/main/Driver.java" />
+        <option value="$PROJECT_DIR$/src/com/reusables/Stopwatch.java" />
+        <option value="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java" />
+        <option value="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java" />
+>>>>>>> parent of 7e5f8bc... workin executor
       </list>
     </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="55" />
@@ -347,9 +423,13 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541266594279" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541259775764" />
+>>>>>>> parent of 7e5f8bc... workin executor
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -442,7 +522,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20939597" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20939597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -451,7 +531,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3503546" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3503546" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -460,15 +540,15 @@
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32907802" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32907802" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3295302" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-      <window_info anchor="right" id="Maven Projects" order="8" weight="0.3295302" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.3295302" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -554,6 +634,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/CSV writer.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="255">
@@ -579,19 +660,37 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="44" column="39" lean-forward="true" selection-start-line="44" selection-start-column="39" selection-end-line="44" selection-end-column="39" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="49" column="61" lean-forward="true" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#913#922#0" expanded="true" />
+            <element signature="e#1245#1254#0" expanded="true" />
+            <element signature="e#1534#1543#0" expanded="true" />
+          </folding>
+>>>>>>> parent of 7e5f8bc... workin executor
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="244">
           <caret line="40" column="56" selection-start-line="40" selection-start-column="56" selection-end-line="40" selection-end-column="56" />
+=======
+        <state relative-caret-position="291">
+          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+>>>>>>> parent of 7e5f8bc... workin executor
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/ParallelSelectionSort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -613,27 +712,31 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java">
+>>>>>>> parent of 7e5f8bc... workin executor
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="179" column="5" lean-forward="true" selection-start-line="179" selection-start-column="5" selection-end-line="179" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3453#3454#0" expanded="true" />
-            <element signature="e#3480#3481#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="245">
+          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
+    <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="307">
           <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
+=======
+        <state relative-caret-position="209">
+          <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+>>>>>>> parent of 7e5f8bc... workin executor
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -671,5 +774,7 @@
         </state>
       </provider>
     </entry>
+=======
+>>>>>>> parent of 7e5f8bc... workin executor
   </component>
 </project>
