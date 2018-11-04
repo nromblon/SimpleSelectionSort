@@ -37,7 +37,6 @@ public class ParallelSelectionExecutor implements Runnable {
 		if(this.getExecutor() == null) {
 			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount);
 		}
-		System.out.println("Start executor");
 		this.getThread().start();
 	}
 	
@@ -76,7 +75,7 @@ public class ParallelSelectionExecutor implements Runnable {
 	public void run() {
 		System.out.println();
 //		System.out.println("PAR_EXEC: Process START");
-		Stopwatch.start("Parallel executor");
+		Stopwatch.start();
 		
 		int currentMin = 0;
 
