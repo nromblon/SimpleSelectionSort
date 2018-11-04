@@ -1,9 +1,7 @@
 package com.algorithm.parallel.forkjoin;
 
 import java.util.ArrayList;
-import java.util.concurrent.Executors;
 import java.util.concurrent.ForkJoinPool;
-import java.util.concurrent.ThreadPoolExecutor;
 
 import com.reusables.CsvWriter;
 import com.reusables.Stopwatch;
@@ -14,16 +12,20 @@ public class ParallelSelectionForkJoin implements Runnable {
 	
 	private int splitCount;
 
-	private MultithreadMonitor monitor;
+//	private MultithreadMonitor monitor;
 
 	private boolean flag1 = false;
 	private boolean flag2 = false;
-	private ArrayList<RunnableSelectionExecutor> runnableSelectionSortList;
+//	private ArrayList<RunnableSelectionExecutor> runnableSelectionSortList;
 	private ArrayList<Integer> itemList;
-	private ThreadPoolExecutor executor;
+//	private ThreadPoolExecutor executor;
+	
+	private volatile int callCount;
 	
 	private volatile boolean isDone;
 	private ForkJoinPool forkJoinPool;
+	
+	private volatile int currentMin;
 	
 	public ParallelSelectionForkJoin() {
 		if(this.getThread() == null) {
@@ -38,40 +40,7 @@ public class ParallelSelectionForkJoin implements Runnable {
 		this.setItemList(itemList);
 		this.setSplitCount(splitCount);
 		
-//		if(this.getExecutor() == null) {
-//			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount);
-//		}
 		this.getThread().start();
-	}
-	
-	
-	public void initializeThreads(ArrayList<Integer> itemList, int startIndex, int splitCount) {
-		ArrayList<Integer> splitSelection = this.splitSelection(itemList, startIndex, splitCount);
-
-		this.runnableSelectionSortList = new ArrayList<RunnableSelectionExecutor>();
-		for(int i = 0; i < splitCount; i++) {
-//			System.out.println(splitSelection.get(i)+" "+ splitSelection.get(i+1));
-			this.runnableSelectionSortList.add(new RunnableSelectionExecutor("rSS "+i, splitSelection.get(i), splitSelection.get(i+1), i));
-		}
-		// initialize monitor
-		this.monitor = new MultithreadMonitor(runnableSelectionSortList, this);
-	}
-	
-	public void reinitializeThreads(ArrayList<Integer> itemList, int startIndex, int splitCount) {
-		
-		if(this.runnableSelectionSortList == null || this.runnableSelectionSortList.size() == 0) {
-			this.initializeThreads(itemList, startIndex, splitCount);
-		}
-		
-		else {
-			this.monitor.reset();
-		}
-	}
-	
-	public void runThreads(ArrayList<Integer> itemList) {
-		for(int i = 0; i < runnableSelectionSortList.size(); i++) {
-			this.getExecutor().execute(this.runnableSelectionSortList.get(i).start(itemList));
-		}
 	}
 	
 	@Override
@@ -82,7 +51,7 @@ public class ParallelSelectionForkJoin implements Runnable {
 //		this.initializeThreads(itemList, 0, this.getSplitCount());
 		Stopwatch.start("Parallel fork join");
 		
-		int currentMin = 0;
+		this.currentMin = 0;
 		int size = itemList.size();
 		ParallelSelectionForkJoinTask forkJoinTask;
 		
@@ -90,14 +59,9 @@ public class ParallelSelectionForkJoin implements Runnable {
 			
 			
 			this.setDone(false);
-			
-			// initialize threads
-//			this.reinitializeThreads(itemList, h, this.getSplitCount());
+			this.callCount = 0;
 
-			// run threads
-//			this.runThreads(this.getItemList());
-
-			forkJoinTask = new ParallelSelectionForkJoinTask(this.getItemList(), h, size);
+			forkJoinTask = new ParallelSelectionForkJoinTask(this, false, this.getItemList(), h, size);
 			this.forkJoinPool = new ForkJoinPool(splitCount);
 			forkJoinPool.invoke(forkJoinTask);
 			
@@ -106,7 +70,8 @@ public class ParallelSelectionForkJoin implements Runnable {
 			while(!this.isDone) {
 				// Do nothing
 			}
-			currentMin = this.monitor.getCurrentMinIndex();
+//			System.out.println("done h "+h);
+//			currentMin = this.monitor.getCurrentMinIndex();
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
 		}
@@ -117,8 +82,18 @@ public class ParallelSelectionForkJoin implements Runnable {
 			e.printStackTrace();
 		}
 		
-		this.executor.shutdown();
+//		this.executor.shutdown();
 		CsvWriter.write(this.getItemList());
+	}
+	
+	synchronized public void callDone(int minIndex, int minValue) {
+		this.callCount += 1;
+		
+		if(minValue < this.itemList.get(this.currentMin));
+		this.currentMin = minIndex;
+		if(this.callCount == this.splitCount) {
+			this.setDone(true);
+		}
 	}
 	
 	public void swap(ArrayList<Integer> list, int index1, int index2) {
@@ -217,12 +192,12 @@ public class ParallelSelectionForkJoin implements Runnable {
 //		this.executor = executor;
 //	}
 	
-	public ThreadPoolExecutor getExecutor() {
-		return executor;
-	}
-	public void setExecutor(ThreadPoolExecutor executor) {
-		this.executor = executor;
-	}
+//	public ThreadPoolExecutor getExecutor() {
+//		return executor;
+//	}
+//	public void setExecutor(ThreadPoolExecutor executor) {
+//		this.executor = executor;
+//	}
 	public boolean isDone() {
 		return isDone;
 	}
