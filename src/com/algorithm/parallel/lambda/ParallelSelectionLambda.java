@@ -30,7 +30,7 @@ public class ParallelSelectionLambda {
         Thread[] threads = new Thread[numPartitions];
 
         // Stopwatch
-        Stopwatch.start("Parallel lambda");
+        Stopwatch.start();
         for(int i = 0; i < size; i++){
             // Initialize
             minIndex = i;
