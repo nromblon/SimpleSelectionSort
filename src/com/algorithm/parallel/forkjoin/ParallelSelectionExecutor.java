@@ -1,4 +1,4 @@
-package com.algorithm.parallel.executor;
+package com.algorithm.parallel.forkjoin;
 
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
