@@ -12,12 +12,13 @@ public class Driver {
 	private static String filename = "UnknownRandom.csv";
 	
 	public static void main(String[] args) {
+
+        runParallel_executor();
 //        runParallel_lambda();
 //        System.out.println("\n\nStarting sequential...");
         runSequential();
 //        System.out.println("\n\nStarting parallel standard...");
 //        runParallel();
-        runParallel_executor();
 	}
 
 	public static void runParallel_lambda(){

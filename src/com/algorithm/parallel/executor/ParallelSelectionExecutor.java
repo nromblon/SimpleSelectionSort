@@ -3,6 +3,7 @@ package com.algorithm.parallel.executor;
 import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import com.reusables.CsvWriter;
@@ -22,6 +23,7 @@ public class ParallelSelectionExecutor implements Runnable {
 	private ArrayList<RunnableSelectionExecutor> runnableSelectionSortList;
 	private ArrayList<Integer> itemList;
 	private ThreadPoolExecutor executor;
+//	private ScheduledThreadPoolExecutor executor;
 	
 	public ParallelSelectionExecutor() {
 		if(this.getThread() == null) {
@@ -38,6 +40,9 @@ public class ParallelSelectionExecutor implements Runnable {
 		
 		if(this.getExecutor() == null) {
 			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount);
+			
+//			this.executor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
+//			this.executor = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(splitCount);
 		}
 		this.getThread().start();
 	}
@@ -55,8 +60,12 @@ public class ParallelSelectionExecutor implements Runnable {
 		
 		if(this.runnableSelectionSortList == null || this.runnableSelectionSortList.size() == 0) {
 			this.initializeThreads(itemList, startIndex, splitCount);
+			// initialize monitor
+			this.monitor = new MultithreadMonitor(runnableSelectionSortList);
+
 		}
 		else {
+			this.monitor.reset();
 			ArrayList<Integer> splitSelection = this.splitSelection(itemList, startIndex, splitCount);
 			 // System.out.println("split selection size "+splitSelection.size());
 			for(int i = 0; i < splitCount; i++) {
@@ -82,28 +91,27 @@ public class ParallelSelectionExecutor implements Runnable {
 		int currentMin = 0;
 
 		int size = itemList.size();
-		boolean isDone;
+//		boolean isDone;
 //		General.PRINT_TIME();
 		for(int h = 0; h < size; h++) {
 			// initialize threads
 			this.reinitializeThreads(itemList, h, this.getSplitCount());
 
-			// initialize monitor
-			this.monitor = new MultithreadMonitor(runnableSelectionSortList);
-
+			// monitor initialization moved in reInitializeThreads
+			
 			// run threads
 			this.runThreads(this.getItemList());
 
 			// Block thread until subthreads are done
 			synchronized (monitor){
 				try{
-//					System.out.println("waiting");
+//					System.out.println("waiting for "+h);
 					monitor.wait();
 				} catch (InterruptedException e){
 					e.printStackTrace();
 				}
 			}
-//			System.out.println("finished waiting");
+			System.out.println("finished waiting");
 
 			// find the local minimum
 			for(int i = 0; i < runnableSelectionSortList.size(); i++){
@@ -232,11 +240,16 @@ public class ParallelSelectionExecutor implements Runnable {
 	}
 
 
+//	public ScheduledThreadPoolExecutor getExecutor() {
+//		return executor;
+//	}
+//	public void setExecutor(ScheduledThreadPoolExecutor executor) {
+//		this.executor = executor;
+//	}
+	
 	public ThreadPoolExecutor getExecutor() {
 		return executor;
 	}
-
-
 	public void setExecutor(ThreadPoolExecutor executor) {
 		this.executor = executor;
 	}

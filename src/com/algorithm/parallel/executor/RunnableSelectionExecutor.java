@@ -16,6 +16,7 @@ public class RunnableSelectionExecutor implements Runnable {
 	private boolean isDone;
 
 	private MultithreadMonitor monitor;
+	private int monitorIndex;
 	
 	public RunnableSelectionExecutor(String name, int startIndex, int endIndex) {
 		this.setThreadName(name);
@@ -30,7 +31,6 @@ public class RunnableSelectionExecutor implements Runnable {
 	 * Thread start function.
 	 */
 	public Runnable start(ArrayList<Integer> list) {
-		this.setDone(false);
 		// General.PRINT(this.getClass().getSimpleName()+" start");
 		this.setItemList(list);
 		
@@ -43,12 +43,14 @@ public class RunnableSelectionExecutor implements Runnable {
 	
 	@Override
 	public void run() {
+		this.setDone(false);
 		// General.PRINT(this.getClass().getSimpleName()+" run");
 		this.setLocalMin(this.findLocalMinimum(this.getItemList(), startIndex, endIndex));
 		// System.out.println("Done "+threadName);
 //		this.getThread().interrupt();
 //		this.thread = null;
 		this.setDone(true);
+		this.monitor.setDone(this,true);
 	}
 	
 	/**
@@ -175,11 +177,19 @@ public class RunnableSelectionExecutor implements Runnable {
 
 	public void setDone(boolean isDone) {
 		this.isDone = isDone;
-		if(isDone)
-			this.monitor.setDone(this,true);
+//		if(isDone)
+//			this.monitor.setDone(this,true);
 	}
 
 	public void setMonitor(MultithreadMonitor monitor){
 		this.monitor = monitor;
+	}
+
+	public int getMonitorIndex() {
+		return monitorIndex;
+	}
+
+	public void setMonitorIndex(int monitorIndex) {
+		this.monitorIndex = monitorIndex;
 	}
 }
