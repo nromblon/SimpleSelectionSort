@@ -90,17 +90,13 @@ public class ParallelSelectionExecutor implements Runnable {
 		Stopwatch.start("Parallel executor");
 		
 		int currentMin = 0;
-
-		int size = itemList.size();
-//		boolean isDone;
-//		General.PRINT_TIME();
+		int size = itemList.size();;
 		
 		this.setDone(false);
 		for(int h = 0; h < size; h++) {
 			// initialize threads
 			this.reinitializeThreads(itemList, h, this.getSplitCount());
 
-			// monitor initialization moved in reInitializeThreads
 			
 			// run threads
 			this.runThreads(this.getItemList());
@@ -109,42 +105,15 @@ public class ParallelSelectionExecutor implements Runnable {
 			while(!this.isDone) {
 				// Do nothing
 			}
-
-//			synchronized (monitor){
-//				try{
-//					monitor.wait();
-//				}
-//				catch (InterruptedException e){
-//					e.printStackTrace();
-//				}
-//			}
-//			System.out.println("finished waiting");
-
+			
 			this.setDone(false);
+			
 			// find the local minimum
 			for(int i = 0; i < runnableSelectionSortList.size(); i++){
 				int localMinIndex = runnableSelectionSortList.get(i).getLocalMin();
 				currentMin = getMinimum(localMinIndex,currentMin);
 			}
-			/*// Check if threads are done
-			for(int i = 0; i < runnableSelectionSortList.size(); i++) {
-				// System.out.println("indices "+runnableSelectionSortList.get(i).getStartIndex()+" "+runnableSelectionSortList.get(i).getEndIndex());
-				isDone = runnableSelectionSortList.get(i).isDone();
-				do {
-//					System.out.println("!!");
-					isDone = runnableSelectionSortList.get(i).isDone();
-					
-				}while(!isDone);
-				// Thread 'i' confirmed as done
-				
-				
-				if(i == 0) {
-					currentMin = runnableSelectionSortList.get(i).getLocalMin();
-				}
-				else {
-					currentMin = getMinimum(currentMin, runnableSelectionSortList.get(i).getLocalMin());
-				}				
-			}*/
+			
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
 		}
