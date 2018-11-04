@@ -1,13 +1,10 @@
 package com.algorithm.parallel.executor;
 
-import java.beans.IntrospectionException;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import com.reusables.CsvWriter;
-import com.reusables.General;
 import com.reusables.Stopwatch;
 
 public class ParallelSelectionExecutor implements Runnable {
@@ -23,7 +20,7 @@ public class ParallelSelectionExecutor implements Runnable {
 	private ArrayList<RunnableSelectionExecutor> runnableSelectionSortList;
 	private ArrayList<Integer> itemList;
 	private ThreadPoolExecutor executor;
-//	private ScheduledThreadPoolExecutor executor;
+	
 	private volatile boolean isDone;
 	
 	public ParallelSelectionExecutor() {
@@ -51,35 +48,37 @@ public class ParallelSelectionExecutor implements Runnable {
 	
 	public void initializeThreads(ArrayList<Integer> itemList, int startIndex, int splitCount) {
 		ArrayList<Integer> splitSelection = this.splitSelection(itemList, startIndex, splitCount);
-		 // System.out.println("split selection size "+splitSelection.size());
+
 		this.runnableSelectionSortList = new ArrayList<RunnableSelectionExecutor>();
 		for(int i = 0; i < splitCount; i++) {
-			this.runnableSelectionSortList.add(new RunnableSelectionExecutor("rSS "+i, splitSelection.get(i), splitSelection.get(i+1)));
+//			System.out.println(splitSelection.get(i)+" "+ splitSelection.get(i+1));
+			this.runnableSelectionSortList.add(new RunnableSelectionExecutor("rSS "+i, splitSelection.get(i), splitSelection.get(i+1), i));
 		}
+		// initialize monitor
+		this.monitor = new MultithreadMonitor(runnableSelectionSortList, this);
 	}
+	
 	public void reinitializeThreads(ArrayList<Integer> itemList, int startIndex, int splitCount) {
 		
 		if(this.runnableSelectionSortList == null || this.runnableSelectionSortList.size() == 0) {
 			this.initializeThreads(itemList, startIndex, splitCount);
-			// initialize monitor
-			this.monitor = new MultithreadMonitor(runnableSelectionSortList, this);
-
 		}
+		
 		else {
 			this.monitor.reset();
-			ArrayList<Integer> splitSelection = this.splitSelection(itemList, startIndex, splitCount);
-			 // System.out.println("split selection size "+splitSelection.size());
-			for(int i = 0; i < splitCount; i++) {
-				this.runnableSelectionSortList.get(i).reset(splitSelection.get(i), splitSelection.get(i+1));
+//			ArrayList<Integer> splitSelection = this.splitSelection(itemList, startIndex, splitCount);
+//			for(int i = 0; i < splitCount; i++) {
+//				this.runnableSelectionSortList.get(i).reset();
+//				this.runnableSelectionSortList.get(i).reset(splitSelection.get(i), splitSelection.get(i+1));
 //				(new RunnableSelectionExecutor("rSS "+i, splitSelection.get(i), splitSelection.get(i+1)));
-			}
+//			}
 		}
 	}
+	
 	public void runThreads(ArrayList<Integer> itemList) {
 		for(int i = 0; i < runnableSelectionSortList.size(); i++) {
 			this.getExecutor().execute(this.runnableSelectionSortList.get(i).start(itemList));
 //			this.runnableSelectionSortList.get(i).start(itemList);
-			// Log started thread here, or at thread 'run' function directly
 		}
 	}
 	
@@ -87,17 +86,17 @@ public class ParallelSelectionExecutor implements Runnable {
 	public void run() {
 		System.out.println();
 //		System.out.println("PAR_EXEC: Process START");
+		this.initializeThreads(itemList, 0, this.getSplitCount());
 		Stopwatch.start("Parallel executor");
 		
 		int currentMin = 0;
 		int size = itemList.size();;
-		
-		this.setDone(false);
 		for(int h = 0; h < size; h++) {
+			this.setDone(false);
+			
 			// initialize threads
 			this.reinitializeThreads(itemList, h, this.getSplitCount());
 
-			
 			// run threads
 			this.runThreads(this.getItemList());
 
@@ -105,15 +104,7 @@ public class ParallelSelectionExecutor implements Runnable {
 			while(!this.isDone) {
 				// Do nothing
 			}
-			
-			this.setDone(false);
-			
-			// find the local minimum
-			for(int i = 0; i < runnableSelectionSortList.size(); i++){
-				int localMinIndex = runnableSelectionSortList.get(i).getLocalMin();
-				currentMin = getMinimum(localMinIndex,currentMin);
-			}
-			
+			currentMin = this.monitor.getCurrentMinIndex();
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
 		}
@@ -123,7 +114,7 @@ public class ParallelSelectionExecutor implements Runnable {
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		General.PRINT_TIME();
+		
 		this.executor.shutdown();
 		CsvWriter.write(this.getItemList());
 	}

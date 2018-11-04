@@ -6,8 +6,9 @@ public class MultithreadMonitor {
 
     private ArrayList<RunnableSelectionExecutor> executors;
     private int executorSize;
-    private int callerCount;
-    
+    private volatile int callerCount;
+    private volatile int currentMinIndex;
+    private volatile int currentMinValue;
 
     private ParallelSelectionExecutor mainExecutor;
 
@@ -20,51 +21,59 @@ public class MultithreadMonitor {
             this.executors.get(i).setMonitorIndex(i);
         }
         this.mainExecutor = executor;
+        this.reset();
     }
 
     public void reset() {
     	this.callerCount = 0;
+    	this.setCurrentMinIndex(-1);
     }
-
-    synchronized public void setDone(boolean val){
-//        boolean hasBeenAllTrue = true;
-//		int callerIndex = -1;
-//        flags[caller.getMonitorIndex()] = val;
+    synchronized public void setDone(boolean val, int minIndex, int minValue){
         this.callerCount += 1;
-//        System.out.println("caller count is "+this.callerCount + " index is "+caller.getMonitorIndex());
+        
+        if(this.getCurrentMinIndex() == -1) {
+        	this.ChangeMinValue(minIndex, minValue);
+        }
+        else {
+        	if(minValue < this.getCurrentMinValue()) {
+            	this.ChangeMinValue(minIndex, minValue);
+        	}
+        }
         
         if(this.callerCount == this.executorSize) {
-//        	System.out.println("Entered RELEASE");
         	this.release();
         }
-
-        /*
-        for(int i = 0; i < flags.length; i++){
-//            if(executors.get(i) == caller) {
-//                callerIndex = i;
-//                flags[i] = val;
-//            }
-            if(!flags[i]) {
-            	firstFalse = i;
-                hasBeenAllTrue = false;
-            }
+    }
+    public void ChangeMinValue(int minIndex, int minValue) {
+    	this.setCurrentMinIndex(minIndex);
+    	this.setCurrentMinValue(minValue);
+    }
+    
+    synchronized public void setDone(boolean val){
+        this.callerCount += 1;
+        if(this.callerCount == this.executorSize) {
+        	this.release();
         }
-//        System.out.println("setDone() called by: executor #"+callerIndex);
-
-        if(hasBeenAllTrue)
-            release();
-        else {
-//        	System.out.println("False on "+firstFalse);
-        }
-        */
     }
 
     synchronized public void release(){
-//        System.out.println("release");
         this.mainExecutor.setDone(true);
-//        synchronized (this) {
-//            this.notify();
-//		}
     }
+
+	public int getCurrentMinValue() {
+		return currentMinValue;
+	}
+
+	public void setCurrentMinValue(int currentMinValue) {
+		this.currentMinValue = currentMinValue;
+	}
+
+	public int getCurrentMinIndex() {
+		return currentMinIndex;
+	}
+
+	public void setCurrentMinIndex(int currentMinIndex) {
+		this.currentMinIndex = currentMinIndex;
+	}
 
 }

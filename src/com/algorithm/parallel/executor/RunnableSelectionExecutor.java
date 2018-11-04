@@ -12,19 +12,22 @@ public class RunnableSelectionExecutor implements Runnable {
 	private int localMin;
 	private int startIndex;
 	private int endIndex;
-	
-	private boolean isDone;
+
+	private int threadIndex;
+//	private boolean isDone;
 
 	private MultithreadMonitor monitor;
 	private int monitorIndex;
 	
-	public RunnableSelectionExecutor(String name, int startIndex, int endIndex) {
+	public RunnableSelectionExecutor(String name, int start, int end, int threadIndex) {
 		this.setThreadName(name);
-		this.setStartIndex(startIndex);
-		this.setEndIndex(endIndex);
-		this.setDone(false);
-		
+		this.setThreadIndex(threadIndex);
 		this.setThread(new Thread(this, this.getThreadName()));
+		this.setStartIndex(start);
+		this.setEndIndex(end);
+		this.startIndex = start;
+		this.endIndex = end;
+//		System.err.println(start + " "+ end+" "+this.startIndex);
 	}
 	
 	/**
@@ -34,23 +37,20 @@ public class RunnableSelectionExecutor implements Runnable {
 		// General.PRINT(this.getClass().getSimpleName()+" start");
 		this.setItemList(list);
 		
-		if(this.getThread() == null) {
+//		if(this.getThread() == null) {
 //			this.setThread(new Thread(this, this.getThreadName()));
 //			this.getThread().start();
-		}
+//		}
 		return this.getThread();
 	}
 	
 	@Override
 	public void run() {
-		this.setDone(false);
-		// General.PRINT(this.getClass().getSimpleName()+" run");
-		this.setLocalMin(this.findLocalMinimum(this.getItemList(), startIndex, endIndex));
-		// System.out.println("Done "+threadName);
-//		this.getThread().interrupt();
-//		this.thread = null;
-		this.setDone(true);
-		this.monitor.setDone(true);
+//		System.out.println("Loc Min "+this.getStartIndex()+ "endIndex "+this.getEndIndex());
+		this.setLocalMin(this.findLocalMinimum(this.getItemList(), this.getStartIndex(), this.getEndIndex()));
+//		this.monitor.setDone(true);
+		this.monitor.setDone(true, this.getLocalMin(), this.getItemList().get(this.getLocalMin()));
+		this.reset();
 	}
 	
 	/**
@@ -62,20 +62,25 @@ public class RunnableSelectionExecutor implements Runnable {
 	 */
 	public int findLocalMinimum(ArrayList<Integer> list, int start, int end) {
 		int localMin = start;
-		
+
+//		System.out.println("starend is "+start+" "+end);
 		for(int i = start+1; i < end; i++) {
 			if(list.get(i) < list.get(localMin)) {
 				localMin = i;
 			}
 		}
+//		System.out.println("found loc min is "+localMin);
 		return localMin;
 	}
 	
 	public void reset(int startIndex, int endIndex) {
-
-		this.setDone(false);
 		this.setStartIndex(startIndex);
 		this.setEndIndex(endIndex);
+	}
+	
+	public void reset() {
+		this.setStartIndex(this.getStartIndex()+1);
+		this.setEndIndex(this.getEndIndex()+1);
 	}
 	
 	/**
@@ -151,8 +156,13 @@ public class RunnableSelectionExecutor implements Runnable {
 	 * Start index setter.
 	 * @param startIndex
 	 */
-	public void setStartIndex(int startIndex) {
-		this.startIndex = startIndex;
+	public void setStartIndex(int index) {
+		if(index < this.getItemList().size()) {
+			this.startIndex = index;
+		}
+		else {
+			this.startIndex = this.getItemList().size()-1;
+		}
 	}
 	
 	/**
@@ -168,19 +178,15 @@ public class RunnableSelectionExecutor implements Runnable {
 	 * @param endIndex
 	 */
 	public void setEndIndex(int endIndex) {
-		this.endIndex = endIndex;
+		if(endIndex < this.getItemList().size()) {
+			this.endIndex = endIndex;
+		}
+		else {
+			this.endIndex = this.getItemList().size()-1;
+		}
 	}
 
-	public boolean isDone() {
-		return isDone;
-	}
-
-	public void setDone(boolean isDone) {
-		this.isDone = isDone;
-//		if(isDone)
-//			this.monitor.setDone(this,true);
-	}
-
+	
 	public void setMonitor(MultithreadMonitor monitor){
 		this.monitor = monitor;
 	}
@@ -191,5 +197,13 @@ public class RunnableSelectionExecutor implements Runnable {
 
 	public void setMonitorIndex(int monitorIndex) {
 		this.monitorIndex = monitorIndex;
+	}
+
+	public int getThreadIndex() {
+		return threadIndex;
+	}
+
+	public void setThreadIndex(int threadIndex) {
+		this.threadIndex = threadIndex;
 	}
 }
