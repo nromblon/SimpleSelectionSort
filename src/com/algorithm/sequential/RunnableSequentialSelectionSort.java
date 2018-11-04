@@ -14,7 +14,7 @@ public class RunnableSequentialSelectionSort implements Runnable {
 	private ArrayList<Integer> list;
 
     public void start(ArrayList<Integer> list) {
-    	General.PRINT(this.getClass().getSimpleName()+" start");
+//    	General.PRINT(this.getClass().getSimpleName()+" start");
 		this.setList(list);
 
         if(this.getThread() == null) {
@@ -57,7 +57,7 @@ public class RunnableSequentialSelectionSort implements Runnable {
             list.set(i,temp);
         }
         
-        System.out.println("SEQ: Process DONE");
+//        System.out.println("SEQ: Process DONE");
         try {
             Stopwatch.endAndPrint();
         } catch (Exception e){

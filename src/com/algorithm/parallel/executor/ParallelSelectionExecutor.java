@@ -148,7 +148,7 @@ public class ParallelSelectionExecutor implements Runnable {
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
 		}
-		System.out.println("PAR_EXEC: Process DONE");
+//		System.out.println("PAR_EXEC: Process DONE");
 		try {
 			Stopwatch.endAndPrint();
 		} catch (Exception e){
