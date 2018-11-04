@@ -41,6 +41,10 @@ public class RunnableSequentialSelectionSort implements Runnable {
 		Stopwatch.start("Sequential");
 //		General.PRINT_TIME();
         int n = list.size();
+        Runtime runtime = Runtime.getRuntime();
+        System.gc();
+        long memoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("memBefore: "+memoryBefore);
         // One by one move boundary of unsorted sublistay
         for (int i = 0; i < n-1; i++) {
             // Find the minimum element in unsorted listay

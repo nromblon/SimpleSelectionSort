@@ -18,10 +18,10 @@ public class Driver {
 	public static void main(String[] args) {
 
 //		runParallel_forkjoin();
-        runParallel_executor();
+//        runParallel_executor();
 //        runParallel_lambda();
 //        System.out.println("\n\nStarting sequential...");
-//        runSequential();
+        runSequential();
 //        System.out.println("\n\nStarting parallel standard...");
 //        runParallel();
 	}
