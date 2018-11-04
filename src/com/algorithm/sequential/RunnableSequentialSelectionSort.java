@@ -35,9 +35,8 @@ public class RunnableSequentialSelectionSort implements Runnable {
     
 	@Override
 	public void run() {
-//		System.out.println();
-//		System.out.println("SEQ: Process START");
-//		General.PRINT_TIME();
+		System.out.println();
+		System.out.println("SEQ: Process START");
 		Stopwatch.start();
 //		General.PRINT_TIME();
         int n = list.size();
