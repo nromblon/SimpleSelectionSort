@@ -5,32 +5,28 @@ import java.util.ArrayList;
 public class MultithreadMonitor {
 
     private ArrayList<RunnableSelectionExecutor> executors;
-    private boolean[] flags;
     private int executorSize;
     private int callerCount;
     
 
-    private ParallelSelectionExecutor executor;
-    
+    private ParallelSelectionExecutor mainExecutor;
+
     public MultithreadMonitor(ArrayList<RunnableSelectionExecutor> executors, ParallelSelectionExecutor executor){
         this.executors = executors;
-        flags = new boolean[executors.size()];
         this.executorSize = executors.size();
         // Associate executors w/ this monitor
         for(int i=0; i<executors.size(); i++){
-            flags[i] = false;
             this.executors.get(i).setMonitor(this);
             this.executors.get(i).setMonitorIndex(i);
         }
-        this.executor = executor;
+        this.mainExecutor = executor;
     }
+
     public void reset() {
     	this.callerCount = 0;
-    	for(int i=0; i<executors.size(); i++){
-            flags[i] = false;
-    	}
     }
-    synchronized public void setDone(RunnableSelectionExecutor caller, boolean val){
+
+    synchronized public void setDone(boolean val){
 //        boolean hasBeenAllTrue = true;
 //		int callerIndex = -1;
 //        flags[caller.getMonitorIndex()] = val;
@@ -54,7 +50,7 @@ public class MultithreadMonitor {
             }
         }
 //        System.out.println("setDone() called by: executor #"+callerIndex);
-	
+
         if(hasBeenAllTrue)
             release();
         else {
@@ -65,7 +61,7 @@ public class MultithreadMonitor {
 
     synchronized public void release(){
 //        System.out.println("release");
-        this.executor.setDone(true);
+        this.mainExecutor.setDone(true);
 //        synchronized (this) {
 //            this.notify();
 //		}

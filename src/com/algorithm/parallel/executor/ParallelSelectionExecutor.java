@@ -87,7 +87,7 @@ public class ParallelSelectionExecutor implements Runnable {
 	public void run() {
 		System.out.println();
 //		System.out.println("PAR_EXEC: Process START");
-		Stopwatch.start();
+		Stopwatch.start("Parallel executor");
 		
 		int currentMin = 0;
 
@@ -106,14 +106,13 @@ public class ParallelSelectionExecutor implements Runnable {
 			this.runThreads(this.getItemList());
 
 			// Block thread until subthreads are done
+			while(!this.isDone) {
+				// Do nothing
+			}
+
 //			synchronized (monitor){
 //				try{
-//					System.out.println("waiting for "+h);
 //					monitor.wait();
-					while(!this.isDone) {
-						;
-					}
-//					System.out.println("release2");
 //				}
 //				catch (InterruptedException e){
 //					e.printStackTrace();

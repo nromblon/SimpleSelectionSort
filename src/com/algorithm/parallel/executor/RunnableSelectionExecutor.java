@@ -50,7 +50,7 @@ public class RunnableSelectionExecutor implements Runnable {
 //		this.getThread().interrupt();
 //		this.thread = null;
 		this.setDone(true);
-		this.monitor.setDone(this,true);
+		this.monitor.setDone(true);
 	}
 	
 	/**
