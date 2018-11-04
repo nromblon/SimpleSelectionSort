@@ -24,6 +24,7 @@ public class ParallelSelectionExecutor implements Runnable {
 	private ArrayList<Integer> itemList;
 	private ThreadPoolExecutor executor;
 //	private ScheduledThreadPoolExecutor executor;
+	private volatile boolean isDone;
 	
 	public ParallelSelectionExecutor() {
 		if(this.getThread() == null) {
@@ -61,7 +62,7 @@ public class ParallelSelectionExecutor implements Runnable {
 		if(this.runnableSelectionSortList == null || this.runnableSelectionSortList.size() == 0) {
 			this.initializeThreads(itemList, startIndex, splitCount);
 			// initialize monitor
-			this.monitor = new MultithreadMonitor(runnableSelectionSortList);
+			this.monitor = new MultithreadMonitor(runnableSelectionSortList, this);
 
 		}
 		else {
@@ -93,6 +94,8 @@ public class ParallelSelectionExecutor implements Runnable {
 		int size = itemList.size();
 //		boolean isDone;
 //		General.PRINT_TIME();
+		
+		this.setDone(false);
 		for(int h = 0; h < size; h++) {
 			// initialize threads
 			this.reinitializeThreads(itemList, h, this.getSplitCount());
@@ -103,16 +106,22 @@ public class ParallelSelectionExecutor implements Runnable {
 			this.runThreads(this.getItemList());
 
 			// Block thread until subthreads are done
-			synchronized (monitor){
-				try{
+//			synchronized (monitor){
+//				try{
 //					System.out.println("waiting for "+h);
-					monitor.wait();
-				} catch (InterruptedException e){
-					e.printStackTrace();
-				}
-			}
-			System.out.println("finished waiting");
+//					monitor.wait();
+					while(!this.isDone) {
+						;
+					}
+//					System.out.println("release2");
+//				}
+//				catch (InterruptedException e){
+//					e.printStackTrace();
+//				}
+//			}
+//			System.out.println("finished waiting");
 
+			this.setDone(false);
 			// find the local minimum
 			for(int i = 0; i < runnableSelectionSortList.size(); i++){
 				int localMinIndex = runnableSelectionSortList.get(i).getLocalMin();
@@ -252,5 +261,12 @@ public class ParallelSelectionExecutor implements Runnable {
 	}
 	public void setExecutor(ThreadPoolExecutor executor) {
 		this.executor = executor;
+	}
+	public boolean isDone() {
+		return isDone;
+	}
+	public void setDone(boolean isDone) {
+//        System.out.println("release1");
+		this.isDone = isDone;
 	}
 }

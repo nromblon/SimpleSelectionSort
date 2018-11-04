@@ -8,7 +8,11 @@ public class MultithreadMonitor {
     private boolean[] flags;
     private int executorSize;
     private int callerCount;
-    public MultithreadMonitor(ArrayList<RunnableSelectionExecutor> executors){
+    
+
+    private ParallelSelectionExecutor executor;
+    
+    public MultithreadMonitor(ArrayList<RunnableSelectionExecutor> executors, ParallelSelectionExecutor executor){
         this.executors = executors;
         flags = new boolean[executors.size()];
         this.executorSize = executors.size();
@@ -18,6 +22,7 @@ public class MultithreadMonitor {
             this.executors.get(i).setMonitor(this);
             this.executors.get(i).setMonitorIndex(i);
         }
+        this.executor = executor;
     }
     public void reset() {
     	this.callerCount = 0;
@@ -26,15 +31,14 @@ public class MultithreadMonitor {
     	}
     }
     synchronized public void setDone(RunnableSelectionExecutor caller, boolean val){
-        boolean hasBeenAllTrue = true;
-        @SuppressWarnings("unused")
-		int callerIndex = -1;
+//        boolean hasBeenAllTrue = true;
+//		int callerIndex = -1;
 //        flags[caller.getMonitorIndex()] = val;
         this.callerCount += 1;
-        System.out.println("caller count is "+this.callerCount + " index is "+caller.getMonitorIndex());
+//        System.out.println("caller count is "+this.callerCount + " index is "+caller.getMonitorIndex());
         
         if(this.callerCount == this.executorSize) {
-        	System.out.println("Entered RELEASE");
+//        	System.out.println("Entered RELEASE");
         	this.release();
         }
 
@@ -60,8 +64,11 @@ public class MultithreadMonitor {
     }
 
     synchronized public void release(){
-        System.out.println("release");
-        this.notify();
+//        System.out.println("release");
+        this.executor.setDone(true);
+//        synchronized (this) {
+//            this.notify();
+//		}
     }
 
 }
