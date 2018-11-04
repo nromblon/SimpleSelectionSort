@@ -5,6 +5,7 @@ import java.util.concurrent.ForkJoinPool;
 
 import com.algorithm.parallel.ParallelSelectionSort;
 import com.algorithm.parallel.executor.ParallelSelectionExecutor;
+import com.algorithm.parallel.forkjoin.ParallelSelectionForkJoin;
 import com.algorithm.parallel.forkjoin.ParallelSelectionForkJoinTask;
 import com.algorithm.parallel.lambda.ParallelSelectionLambda;
 import com.algorithm.sequential.RunnableSequentialSelectionSort;
@@ -25,9 +26,11 @@ public class Driver {
 //        runParallel();
 	}
 	public static void runParallel_forkjoin(){
-		ForkJoinPool pool = ForkJoinPool.commonPool();
-		BigInteger result = pool.invoke(new ParallelSelectionForkJoinTask(100));
-		System.out.println("result "+result);
+		ParallelSelectionForkJoin parallelSelectionForkJoin = new ParallelSelectionForkJoin();
+        ArrayList<Integer> itemList = new ArrayList<Integer>();
+
+        itemList = CsvParser.read(filename);
+        parallelSelectionForkJoin.start(itemList, 2);
 	}
 	public static void runParallel_lambda(){
         ParallelSelectionLambda pLambda = new ParallelSelectionLambda();

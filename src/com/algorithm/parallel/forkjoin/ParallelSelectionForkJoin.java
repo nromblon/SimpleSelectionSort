@@ -2,12 +2,13 @@ package com.algorithm.parallel.forkjoin;
 
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import com.reusables.CsvWriter;
 import com.reusables.Stopwatch;
 
-public class ParallelSelectionExecutor implements Runnable {
+public class ParallelSelectionForkJoin implements Runnable {
 	private Thread thread;
 	private String threadName;
 	
@@ -22,8 +23,9 @@ public class ParallelSelectionExecutor implements Runnable {
 	private ThreadPoolExecutor executor;
 	
 	private volatile boolean isDone;
+	private ForkJoinPool forkJoinPool;
 	
-	public ParallelSelectionExecutor() {
+	public ParallelSelectionForkJoin() {
 		if(this.getThread() == null) {
 			this.setThreadName("ParallelSelectionSort");
 			this.setThread(new Thread(this, this.getThreadName()));
@@ -36,9 +38,9 @@ public class ParallelSelectionExecutor implements Runnable {
 		this.setItemList(itemList);
 		this.setSplitCount(splitCount);
 		
-		if(this.getExecutor() == null) {
-			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount);
-		}
+//		if(this.getExecutor() == null) {
+//			this.executor = (ThreadPoolExecutor) Executors.newFixedThreadPool(splitCount);
+//		}
 		this.getThread().start();
 	}
 	
@@ -74,22 +76,32 @@ public class ParallelSelectionExecutor implements Runnable {
 	
 	@Override
 	public void run() {
+	
 		System.out.println();
 //		System.out.println("PAR_EXEC: Process START");
-		this.initializeThreads(itemList, 0, this.getSplitCount());
-		Stopwatch.start("Parallel executor");
+//		this.initializeThreads(itemList, 0, this.getSplitCount());
+		Stopwatch.start("Parallel fork join");
 		
 		int currentMin = 0;
-		int size = itemList.size();;
+		int size = itemList.size();
+		ParallelSelectionForkJoinTask forkJoinTask;
+		
 		for(int h = 0; h < size; h++) {
+			
+			
 			this.setDone(false);
 			
 			// initialize threads
-			this.reinitializeThreads(itemList, h, this.getSplitCount());
+//			this.reinitializeThreads(itemList, h, this.getSplitCount());
 
 			// run threads
-			this.runThreads(this.getItemList());
+//			this.runThreads(this.getItemList());
 
+			forkJoinTask = new ParallelSelectionForkJoinTask(this.getItemList(), h, size);
+			this.forkJoinPool = new ForkJoinPool(splitCount);
+			forkJoinPool.invoke(forkJoinTask);
+			
+			
 			// Block thread until subthreads are done
 			while(!this.isDone) {
 				// Do nothing
