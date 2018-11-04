@@ -20,7 +20,8 @@ public class MultithreadMonitor {
 
     synchronized public void setDone(RunnableSelectionExecutor caller, boolean val){
         boolean hasBeenAllTrue = true;
-        int callerIndex = -1;
+        @SuppressWarnings("unused")
+		int callerIndex = -1;
         for(int i = 0; i < flags.length; i++){
             if(executors.get(i) == caller) {
                 callerIndex = i;
