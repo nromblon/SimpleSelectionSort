@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <change afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/executor/MultithreadMonitor.java" afterDir="false" />
 >>>>>>> parent of 164be0f... stopwatch names
@@ -22,6 +23,10 @@
 >>>>>>> parent of 7e5f8bc... workin executor
 =======
 >>>>>>> parent of 164be0f... stopwatch names
+=======
+      <change afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java" afterDir="false" />
+>>>>>>> parent of 7e5f8bc... workin executor
 =======
       <change afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java" afterDir="false" />
@@ -58,6 +63,7 @@
           <entry key="10000random" value="1" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <entry key="csv" value="2" />
 <<<<<<< HEAD
           <entry key="java" value="32" />
@@ -72,10 +78,15 @@
           <entry key="csv" value="1" />
           <entry key="java" value="24" />
 >>>>>>> parent of 7e5f8bc... workin executor
+=======
+          <entry key="csv" value="1" />
+          <entry key="java" value="24" />
+>>>>>>> parent of 7e5f8bc... workin executor
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           <entry key="CSV" value="1" />
@@ -90,6 +101,9 @@
 =======
           <entry key="JAVA" value="24" />
 >>>>>>> parent of 7e5f8bc... workin executor
+=======
+          <entry key="JAVA" value="24" />
+>>>>>>> parent of 7e5f8bc... workin executor
           <entry key="PLAIN_TEXT" value="2" />
         </counts>
       </usages-collector>
@@ -97,6 +111,7 @@
         <counts>
           <entry key="10000random" value="1" />
           <entry key="dummy" value="27" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -110,10 +125,14 @@
 =======
           <entry key="java" value="5245" />
 >>>>>>> parent of 7e5f8bc... workin executor
+=======
+          <entry key="java" value="5245" />
+>>>>>>> parent of 7e5f8bc... workin executor
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -124,6 +143,9 @@
 =======
           <entry key="JAVA" value="7210" />
 >>>>>>> parent of 164be0f... stopwatch names
+=======
+          <entry key="JAVA" value="5245" />
+>>>>>>> parent of 7e5f8bc... workin executor
 =======
           <entry key="JAVA" value="5245" />
 >>>>>>> parent of 7e5f8bc... workin executor
@@ -150,6 +172,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="307">
               <caret line="37" column="38" lean-forward="true" selection-start-line="37" selection-start-column="38" selection-end-line="37" selection-end-column="38" />
 =======
@@ -160,6 +183,10 @@
             <state relative-caret-position="228">
               <caret line="17" column="26" lean-forward="true" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
 >>>>>>> parent of 164be0f... stopwatch names
+=======
+            <state relative-caret-position="213">
+              <caret line="49" column="61" lean-forward="true" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
+>>>>>>> parent of 7e5f8bc... workin executor
 =======
             <state relative-caret-position="213">
               <caret line="49" column="61" lean-forward="true" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
@@ -177,6 +204,7 @@
       <file pinned="false" current-in-tab="false">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -192,16 +220,27 @@
             <state relative-caret-position="245">
               <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
 >>>>>>> parent of 7e5f8bc... workin executor
+=======
+        <entry file="file://$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="245">
+              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+>>>>>>> parent of 7e5f8bc... workin executor
             </state>
           </provider>
         </entry>
       </file>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
 =======
 >>>>>>> parent of 164be0f... stopwatch names
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java">
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
+>>>>>>> parent of 7e5f8bc... workin executor
 =======
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
@@ -220,6 +259,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file pinned="false" current-in-tab="true">
@@ -260,11 +300,19 @@
               <folding>
                 <element signature="imports" expanded="true" />
 =======
+=======
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java">
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> parent of 7e5f8bc... workin executor
             <state relative-caret-position="291">
               <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
               <folding>
                 <element signature="e#582#583#0" expanded="true" />
                 <element signature="e#603#604#0" expanded="true" />
+<<<<<<< HEAD
+>>>>>>> parent of 7e5f8bc... workin executor
+=======
 >>>>>>> parent of 7e5f8bc... workin executor
               </folding>
             </state>
@@ -272,6 +320,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/src/com/reusables/Stopwatch.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -317,11 +366,18 @@
 =======
         <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
+=======
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> parent of 7e5f8bc... workin executor
             <state relative-caret-position="107">
               <caret line="421" selection-start-line="421" selection-end-line="421" />
               <folding>
                 <element signature="e#15631#15632#0" expanded="true" />
               </folding>
+<<<<<<< HEAD
+>>>>>>> parent of 7e5f8bc... workin executor
+=======
 >>>>>>> parent of 7e5f8bc... workin executor
             </state>
           </provider>
@@ -332,6 +388,9 @@
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 7e5f8bc... workin executor
 =======
 >>>>>>> parent of 7e5f8bc... workin executor
             <state relative-caret-position="209">
@@ -354,6 +413,7 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/reusables/CsvParser.java">
+<<<<<<< HEAD
 <<<<<<< HEAD
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -381,6 +441,9 @@
 >>>>>>> parent of 164be0f... stopwatch names
 =======
           <provider selected="true" editor-type-id="text-editor">
+=======
+          <provider selected="true" editor-type-id="text-editor">
+>>>>>>> parent of 7e5f8bc... workin executor
             <state relative-caret-position="102">
               <caret line="9" column="60" selection-start-line="9" selection-start-column="60" selection-end-line="9" selection-end-column="60" />
               <folding>
@@ -395,6 +458,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="153">
               <caret line="38" column="23" lean-forward="true" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+<<<<<<< HEAD
+>>>>>>> parent of 7e5f8bc... workin executor
+=======
 >>>>>>> parent of 7e5f8bc... workin executor
               <folding>
                 <element signature="imports" expanded="true" />
@@ -452,6 +518,7 @@
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java" />
 <<<<<<< HEAD
@@ -466,6 +533,8 @@
         <option value="$PROJECT_DIR$/src/com/main/Driver.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/MultithreadMonitor.java" />
 >>>>>>> parent of 164be0f... stopwatch names
+=======
+>>>>>>> parent of 7e5f8bc... workin executor
 =======
 >>>>>>> parent of 7e5f8bc... workin executor
       </list>
@@ -569,6 +638,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541266594279" />
 =======
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541259775764" />
@@ -576,6 +646,9 @@
 =======
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541265981136" />
 >>>>>>> parent of 164be0f... stopwatch names
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541259775764" />
+>>>>>>> parent of 7e5f8bc... workin executor
 =======
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541259775764" />
 >>>>>>> parent of 7e5f8bc... workin executor
@@ -804,6 +877,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/CSV writer.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="255">
@@ -850,6 +924,10 @@
 =======
     <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
       <provider selected="true" editor-type-id="text-editor">
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+>>>>>>> parent of 7e5f8bc... workin executor
         <state relative-caret-position="213">
           <caret line="49" column="61" lean-forward="true" selection-start-line="49" selection-start-column="61" selection-end-line="49" selection-end-column="61" />
           <folding>
@@ -858,12 +936,16 @@
             <element signature="e#1245#1254#0" expanded="true" />
             <element signature="e#1534#1543#0" expanded="true" />
           </folding>
+<<<<<<< HEAD
+>>>>>>> parent of 7e5f8bc... workin executor
+=======
 >>>>>>> parent of 7e5f8bc... workin executor
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/LambdaRunnable.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -881,6 +963,10 @@
         <state relative-caret-position="291">
           <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
 >>>>>>> parent of 7e5f8bc... workin executor
+=======
+        <state relative-caret-position="291">
+          <caret line="20" column="63" selection-start-line="20" selection-start-column="63" selection-end-line="20" selection-end-column="63" />
+>>>>>>> parent of 7e5f8bc... workin executor
           <folding>
             <element signature="e#582#583#0" expanded="true" />
             <element signature="e#603#604#0" expanded="true" />
@@ -888,6 +974,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -924,6 +1011,9 @@
 =======
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java">
 >>>>>>> parent of 7e5f8bc... workin executor
+=======
+    <entry file="file://$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java">
+>>>>>>> parent of 7e5f8bc... workin executor
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
           <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
@@ -932,6 +1022,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -949,12 +1040,17 @@
         <state relative-caret-position="209">
           <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
 >>>>>>> parent of 7e5f8bc... workin executor
+=======
+        <state relative-caret-position="209">
+          <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+>>>>>>> parent of 7e5f8bc... workin executor
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java">
@@ -1006,6 +1102,8 @@
       </provider>
     </entry>
 >>>>>>> parent of 164be0f... stopwatch names
+=======
+>>>>>>> parent of 7e5f8bc... workin executor
 =======
 >>>>>>> parent of 7e5f8bc... workin executor
   </component>
