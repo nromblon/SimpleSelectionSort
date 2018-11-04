@@ -5,6 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
 import com.reusables.CsvWriter;
+import com.reusables.General;
 import com.reusables.Stopwatch;
 
 public class ParallelSelectionExecutor implements Runnable {
@@ -97,14 +98,18 @@ public class ParallelSelectionExecutor implements Runnable {
 			currentMin = this.monitor.getCurrentMinIndex();
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
+			
+			
 		}
 //		System.out.println("PAR_EXEC: Process DONE");
+
+		General.printUsage();
 		try {
 			Stopwatch.endAndPrint();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
-		
+
 		this.executor.shutdown();
 		CsvWriter.write(this.getItemList());
 	}

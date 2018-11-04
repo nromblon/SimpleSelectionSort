@@ -17,8 +17,8 @@ public class Driver {
 	
 	public static void main(String[] args) {
 
-		runParallel_forkjoin();
-//        runParallel_executor();
+//		runParallel_forkjoin();
+        runParallel_executor();
 //        runParallel_lambda();
 //        System.out.println("\n\nStarting sequential...");
 //        runSequential();

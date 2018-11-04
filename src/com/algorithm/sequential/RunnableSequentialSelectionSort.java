@@ -2,6 +2,7 @@ package com.algorithm.sequential;
 
 import java.util.ArrayList;
 
+import com.reusables.General;
 import com.reusables.Stopwatch;
 
 /* This code is adapted from Rajat Mishra's*/
@@ -54,9 +55,12 @@ public class RunnableSequentialSelectionSort implements Runnable {
             int temp = list.get(min_idx);
             list.set(min_idx,list.get(i));
             list.set(i,temp);
+           
         }
         
 //        System.out.println("SEQ: Process DONE");
+        General.printUsage();
+//		General.printUsage();
         try {
             Stopwatch.endAndPrint();
         } catch (Exception e){
