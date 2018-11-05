@@ -23,7 +23,7 @@ public class Driver {
 	private static final int _500K = 500000;
 	private static final int _1M = 1000000;
 
-	private static final String filename = generated_name_prefix+_10K+".csv";
+	private static final String filename = generated_name_prefix+_300K+".csv";
 	
 	public static void main(String[] args) {
         runParallel_executor();
