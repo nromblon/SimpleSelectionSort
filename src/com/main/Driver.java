@@ -42,13 +42,13 @@ public class Driver {
 	public static void runParallel_executor(ArrayList<Integer> list){
 
         ParallelSelectionExecutor parallelSelectionExecutor = new ParallelSelectionExecutor();
-        ArrayList<Integer> itemList = CsvParser.read(filename);
+        ArrayList<Integer> itemList = list;
         parallelSelectionExecutor.start(itemList, 2);
     }
 	public static void runParallel_executor(){
 
         ParallelSelectionExecutor parallelSelectionExecutor = new ParallelSelectionExecutor();
-        ArrayList<Integer> itemList = list;
+        ArrayList<Integer> itemList = CsvParser.read(filename);
         parallelSelectionExecutor.start(itemList, 2);
     }
 	
