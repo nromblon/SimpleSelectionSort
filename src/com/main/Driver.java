@@ -17,9 +17,9 @@ public class Driver {
 	private static final String generated_name_prefix = "unsorted_generated_";
 
 	public static void main(String[] args) {
-//        ArrayList<Integer> input = generateRandom(10000);
+        ArrayList<Integer> input = CsvParser.read("unsorted_generated_10000.csv");
 //		runParallel_forkjoin();
-        runParallel_executor();
+        runParallel_executor(input);
 //        runParallel_lambda();
 //        System.out.println("\n\nStarting sequential...");
 //        runSequential(input);

@@ -64,7 +64,23 @@ public class ParallelSelectionExecutor implements Runnable {
 		
 		else {
 			this.monitor.reset();
+			// Find the indeces
+			double rawSizePerPartition = (double)(itemList.size() - startIndex) / (double) splitCount;
+			boolean isExact = rawSizePerPartition % 1 == 0 ? true : false;
+			int sizePerPartition = (int)Math.floor(rawSizePerPartition);
+			int curIndex = startIndex;
+			int nextIndex = curIndex;
+			for(int t = 0; t < runnableSelectionSortList.size(); t++){
+				nextIndex += sizePerPartition;
+				if(!isExact && t == splitCount -1)
+					nextIndex +=1;
+//				System.out.println("init thread: "+t+" start:"+curIndex+" end:"+nextIndex);
+				this.runnableSelectionSortList.get(t).setStartIndex(curIndex);
+				this.runnableSelectionSortList.get(t).setEndIndex(nextIndex);
+				curIndex = nextIndex;
+			}
 		}
+
 	}
 	
 	public void runThreads(ArrayList<Integer> itemList) {
@@ -94,12 +110,14 @@ public class ParallelSelectionExecutor implements Runnable {
 
 			// run threads
 			this.runThreads(this.getItemList());
-			// debugging only
-			for(int i =0;i<this.runnableSelectionSortList.size();i++){
-				int st = runnableSelectionSortList.get(i).getStartIndex();
-				int ed = runnableSelectionSortList.get(i).getEndIndex();
-				System.out.println("For element #"+h+":: Thread "+i+" has start index:"+st+" and end index:"+ed);
-			}
+
+//			// debugging only. Comment out on final
+//			for(int i =0;i<this.runnableSelectionSortList.size();i++){
+//				int st = runnableSelectionSortList.get(i).getStartIndex();
+//				int ed = runnableSelectionSortList.get(i).getEndIndex();
+//				System.out.println("For element #"+h+":: Thread "+i+" has start index:"+st+" and end index:"+ed);
+//			}
+
 			// Block thread until subthreads are done
 			while(!this.isDone) {
 				// Do nothing

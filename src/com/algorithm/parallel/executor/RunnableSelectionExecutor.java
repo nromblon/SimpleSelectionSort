@@ -45,11 +45,11 @@ public class RunnableSelectionExecutor implements Runnable {
 	
 	@Override
 	public void run() {
-		System.out.println("Starend "+this.getStartIndex()+ "endIndex "+this.getEndIndex());
+//		System.out.println("Starend "+this.getStartIndex()+ "endIndex "+this.getEndIndex());
 		this.setLocalMin(this.findLocalMinimum(this.getItemList(), this.getStartIndex(), this.getEndIndex()));
 //		this.monitor.setDone(true);
 		this.monitor.setDone(true, this.getLocalMin(), this.getItemList().get(this.getLocalMin()));
-		this.reset();
+//		this.reset();
 	}
 	
 	/**
@@ -156,12 +156,13 @@ public class RunnableSelectionExecutor implements Runnable {
 	 * @param index
 	 */
 	public void setStartIndex(int index) {
-		if(index < this.getItemList().size()) {
-			this.startIndex = index;
-		}
-		else {
-			this.startIndex = this.getItemList().size()-1;
-		}
+		this.startIndex = index;
+//		if(index < this.getItemList().size()) {
+//			this.startIndex = index;
+//		}
+//		else {
+//			this.startIndex = this.getItemList().size()-1;
+//		}
 	}
 	
 	/**
@@ -177,12 +178,13 @@ public class RunnableSelectionExecutor implements Runnable {
 	 * @param endIndex
 	 */
 	public void setEndIndex(int endIndex) {
-		if(endIndex < this.getItemList().size()) {
-			this.endIndex = endIndex;
-		}
-		else {
-			this.endIndex = this.getItemList().size();
-		}
+		this.endIndex = endIndex;
+//		if(endIndex < this.getItemList().size()) {
+//			this.endIndex = endIndex;
+//		}
+//		else {
+//			this.endIndex = this.getItemList().size();
+//		}
 	}
 
 	
