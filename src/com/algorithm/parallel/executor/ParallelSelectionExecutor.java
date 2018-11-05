@@ -79,7 +79,11 @@ public class ParallelSelectionExecutor implements Runnable {
 //		System.out.println("PAR_EXEC: Process START");
 		this.initializeThreads(itemList, 0, this.getSplitCount());
 		Stopwatch.start("Parallel executor");
-		
+		Runtime runtime = Runtime.getRuntime();
+        System.gc();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
+      
 		int currentMin = 0;
 		int size = itemList.size();;
 		for(int h = 0; h < size; h++) {
@@ -102,6 +106,9 @@ public class ParallelSelectionExecutor implements Runnable {
 			
 		}
 //		System.out.println("PAR_EXEC: Process DONE");
+		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
+        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
 
 		General.printUsage();
 		try {
