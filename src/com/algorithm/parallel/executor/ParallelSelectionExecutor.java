@@ -45,12 +45,14 @@ public class ParallelSelectionExecutor implements Runnable {
 	
 	
 	public void initializeThreads(ArrayList<Integer> itemList, int startIndex, int splitCount) {
-		ArrayList<Integer> splitSelection = this.splitSelection(itemList, startIndex, splitCount);
+//		ArrayList<Integer> splitSelection = this.splitSelection(itemList, startIndex, splitCount);
 
 		this.runnableSelectionSortList = new ArrayList<RunnableSelectionExecutor>();
 		for(int i = 0; i < splitCount; i++) {
 //			System.out.println(splitSelection.get(i)+" "+ splitSelection.get(i+1));
-			this.runnableSelectionSortList.add(new RunnableSelectionExecutor("rSS "+i, splitSelection.get(i), splitSelection.get(i+1), i));
+//			this.runnableSelectionSortList.add(new RunnableSelectionExecutor("rSS "+i, splitSelection.get(i), splitSelection.get(i+1), i));
+			this.runnableSelectionSortList.add(new RunnableSelectionExecutor("rSS "+i, 0, 0, i));
+
 		}
 		// initialize monitor
 		this.monitor = new MultithreadMonitor(runnableSelectionSortList, this);
@@ -186,7 +188,7 @@ public class ParallelSelectionExecutor implements Runnable {
 		int index = startIndex;
 		for(int i = 0; i < splitCount; i++) {
 			splitIndices.add(index);
-			 System.out.println("splitIndex: "+index);
+//			 System.out.println("splitIndex: "+index);
 			index += size;
 		}
 		splitIndices.add(itemList.size());

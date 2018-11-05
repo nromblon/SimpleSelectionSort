@@ -12,8 +12,6 @@ import com.reusables.CsvParser;
 import com.reusables.CsvWriter;
 
 public class Driver {
-//	private static String filename = "10000random.csv";
-//	private static String filename = "UnknownRandom.csv";
 	private static final String generated_name_prefix = "unsorted_generated_";
 	private static final int _10K = 10000;
 	private static final int _100K = 100000;
@@ -22,8 +20,8 @@ public class Driver {
 	private static final String filename = generated_name_prefix+_10K+".csv";
 	
 	public static void main(String[] args) {
-//        runParallel_executor();
-        runSequential();
+        runParallel_executor();
+//        runSequential();
 	}
 	public static void runParallel_forkjoin(ArrayList<Integer> list){
 		ParallelSelectionForkJoin parallelSelectionForkJoin = new ParallelSelectionForkJoin();
