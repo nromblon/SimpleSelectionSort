@@ -22,4 +22,18 @@ public class CsvWriter {
          catch (IOException e) {
          }
     }
+
+    public static void write(ArrayList<Integer> list, String filename){
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter(filename+".csv"));
+            for(int i = 0; i < list.size(); i++) {
+                out.write(list.get(i)+",\n");
+            }
+
+            out.close();
+            System.out.println("File created successfully");
+        }
+        catch (IOException e) {
+        }
+    }
 }
