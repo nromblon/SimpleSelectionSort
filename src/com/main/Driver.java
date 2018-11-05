@@ -17,7 +17,7 @@ public class Driver {
 	private static final String generated_name_prefix = "unsorted_generated_";
 
 	public static void main(String[] args) {
-        ArrayList<Integer> input = generateRandom(10000);
+        ArrayList<Integer> input = generateRandom(1000000);
 //		runParallel_forkjoin();
 //        runParallel_executor();
 //        runParallel_lambda();
