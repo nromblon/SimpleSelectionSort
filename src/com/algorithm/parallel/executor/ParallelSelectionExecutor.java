@@ -1,5 +1,7 @@
 package com.algorithm.parallel.executor;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
 import java.util.ArrayList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -100,11 +102,14 @@ public class ParallelSelectionExecutor implements Runnable {
 		Stopwatch.start("Parallel executor");
 		
 		// MEMORY Usage (1)
-		Runtime runtime = Runtime.getRuntime();
-        System.gc();
-        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
-      
+//		Runtime runtime = Runtime.getRuntime();
+//        System.gc();
+//        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+//        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
+
+		// MEMORY Usage (1)
+		OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
+
 		int currentMin = 0;
 		int size = itemList.size();;
 		for(int h = 0; h < size; h++) {
@@ -135,12 +140,12 @@ public class ParallelSelectionExecutor implements Runnable {
 		}
 
 		// MEMORY Usage (2)
-		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
-        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
+//		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+//        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
+//        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
 
         // CPU Usage
-		General.printUsage();
+		General.printUsage(osBean);
 		
 		// SPEED Record
 		try {

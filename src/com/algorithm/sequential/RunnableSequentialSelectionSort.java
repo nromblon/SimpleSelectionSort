@@ -1,5 +1,7 @@
 package com.algorithm.sequential;
 
+import java.lang.management.ManagementFactory;
+import java.lang.management.OperatingSystemMXBean;
 import java.util.ArrayList;
 
 import com.reusables.CsvWriter;
@@ -39,11 +41,13 @@ public class RunnableSequentialSelectionSort implements Runnable {
 		// SPEED Record
 		Stopwatch.start("Sequential");
 		
-		// MEMORY Usage (1)
 //        Runtime runtime = Runtime.getRuntime();
 //        System.gc();
 //        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
 //        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
+		
+		// MEMORY Usage (1)
+		OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
 
         int n = list.size();
         // One by one move boundary of unsorted sublistay
@@ -69,7 +73,7 @@ public class RunnableSequentialSelectionSort implements Runnable {
 //        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
        
         // CPU Usage
-        General.printUsage();
+        General.printUsage(osBean);
 
         // SPEED Record
         try {

@@ -1,6 +1,5 @@
 package com.reusables;
 
-import java.lang.management.ManagementFactory;
 import java.lang.management.OperatingSystemMXBean;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
@@ -15,11 +14,11 @@ public class General {
 	private static final boolean isPrinting = true;
 	private static final boolean isPrintingError = true;
 	
-	public static void printUsage() {
-		OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
+	public static void printUsage(OperatingSystemMXBean osBean) {
+
+		printCpuLoad(osBean);
 //		OperatingSystemMXBean osBean = ManagementFactory.getPlatformMXBean(
 //      OperatingSystemMXBean.class);
-		printCpuLoad(osBean);
 		// What % CPU load this current JVM is taking, from 0.0-1.0
 //		System.out.println("CPU Process load: "+osBean.getProcessCpuLoad());
 //		System.out.println("CPU Process time: "+osBean.getProcessCpuTime());
@@ -28,6 +27,7 @@ public class General {
 //		System.out.println(osBean.getSystemCpuLoad());
 	}
 	
+	/* printCpuLoad code taken from Bartosz Wieczorek (2015) */
 	private static void printCpuLoad(OperatingSystemMXBean mxBean) {
       for (Method method : mxBean.getClass().getDeclaredMethods()) {
         method.setAccessible(true);
