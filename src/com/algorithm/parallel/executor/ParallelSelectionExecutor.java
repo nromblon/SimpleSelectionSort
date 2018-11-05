@@ -94,7 +94,12 @@ public class ParallelSelectionExecutor implements Runnable {
 
 			// run threads
 			this.runThreads(this.getItemList());
-
+			// debugging only
+			for(int i =0;i<this.runnableSelectionSortList.size();i++){
+				int st = runnableSelectionSortList.get(i).getStartIndex();
+				int ed = runnableSelectionSortList.get(i).getEndIndex();
+				System.out.println("For element #"+h+":: Thread "+i+" has start index:"+st+" and end index:"+ed);
+			}
 			// Block thread until subthreads are done
 			while(!this.isDone) {
 				// Do nothing
@@ -154,7 +159,7 @@ public class ParallelSelectionExecutor implements Runnable {
 		int index = startIndex;
 		for(int i = 0; i < splitCount; i++) {
 			splitIndices.add(index);
-			// System.out.println("splitIndex: "+index);
+			 System.out.println("splitIndex: "+index);
 			index += size;
 		}
 		splitIndices.add(itemList.size());

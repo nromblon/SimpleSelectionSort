@@ -19,10 +19,10 @@ public class Driver {
 	public static void main(String[] args) {
         ArrayList<Integer> input = generateRandom(10000);
 //		runParallel_forkjoin();
-//        runParallel_executor();
+        runParallel_executor(input);
 //        runParallel_lambda();
 //        System.out.println("\n\nStarting sequential...");
-        runSequential(input);
+//        runSequential(input);
 //        System.out.println("\n\nStarting parallel standard...");
 //        runParallel();
 	}

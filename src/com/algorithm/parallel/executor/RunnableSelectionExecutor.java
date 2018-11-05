@@ -153,7 +153,7 @@ public class RunnableSelectionExecutor implements Runnable {
 	
 	/**
 	 * Start index setter.
-	 * @param startIndex
+	 * @param index
 	 */
 	public void setStartIndex(int index) {
 		if(index < this.getItemList().size()) {
@@ -181,7 +181,7 @@ public class RunnableSelectionExecutor implements Runnable {
 			this.endIndex = endIndex;
 		}
 		else {
-			this.endIndex = this.getItemList().size()-1;
+			this.endIndex = this.getItemList().size();
 		}
 	}
 
