@@ -12,8 +12,8 @@ import com.reusables.CsvParser;
 import com.reusables.CsvWriter;
 
 public class Driver {
-//	private static String filename = "10000random.csv";
-	private static String filename = "UnknownRandom.csv";
+	private static String filename = "10000random.csv";
+//	private static String filename = "UnknownRandom.csv";
 	private static final String generated_name_prefix = "unsorted_generated_";
 
 	public static void main(String[] args) {
@@ -45,13 +45,26 @@ public class Driver {
         ArrayList<Integer> itemList = list;
         parallelSelectionExecutor.start(itemList, 2);
     }
+	
+	public static void runParallel(){
+        ParallelSelectionSort parallelSelectionSort = new ParallelSelectionSort();
+        ArrayList<Integer> itemList = CsvParser.read(filename);
+        parallelSelectionSort.start(itemList, 2);
+    }
+
 	public static void runParallel(ArrayList<Integer> list){
 
         ParallelSelectionSort parallelSelectionSort = new ParallelSelectionSort();
         ArrayList<Integer> itemList = list;
         parallelSelectionSort.start(itemList, 2);
     }
+	public static void runSequential(){
+//      SequentialSelectionSort seq = new SequentialSelectionSort();
+      RunnableSequentialSelectionSort runSeq = new RunnableSequentialSelectionSort();
+      ArrayList<Integer> input = CsvParser.read(filename);
+      runSeq.start(input);
 
+  }
 	public static void runSequential(ArrayList<Integer> list){
 //        SequentialSelectionSort seq = new SequentialSelectionSort();
         RunnableSequentialSelectionSort runSeq = new RunnableSequentialSelectionSort();
