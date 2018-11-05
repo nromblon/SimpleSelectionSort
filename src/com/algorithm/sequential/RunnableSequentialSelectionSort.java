@@ -38,17 +38,20 @@ public class RunnableSequentialSelectionSort implements Runnable {
     
 	@Override
 	public void run() {
-		// SPEED Record
-		Stopwatch.start("Sequential");
-		
-//        Runtime runtime = Runtime.getRuntime();
-//        System.gc();
-//        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-//        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
-		
-		// MEMORY Usage (1)
+		// CPU Usage (1)
 		OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
 
+				
+		// MEMORY Usage (1)
+        Runtime runtime = Runtime.getRuntime();
+        System.gc();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
+		
+
+		// SPEED Record
+		Stopwatch.start("Sequential");
+				
         int n = list.size();
         // One by one move boundary of unsorted sublistay
         for (int i = 0; i < n-1; i++) {
@@ -67,21 +70,21 @@ public class RunnableSequentialSelectionSort implements Runnable {
            
         }
 
-        // MEMORY Usage (2)
-//        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-//        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
-//        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
-       
-        // CPU Usage
-        General.printUsage(osBean);
-
         // SPEED Record
         try {
             Stopwatch.endAndPrint();
         } catch (Exception e){
             e.printStackTrace();
         }
-        
+
+        // MEMORY Usage (2)
+        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
+        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
+       
+        // CPU Usage (2)
+        General.printUsage(osBean);
+
         // Print CSV
         CsvWriter.write(list);
 	}

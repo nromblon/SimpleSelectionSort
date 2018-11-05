@@ -19,7 +19,8 @@ public class Driver {
 	private static final String generated_name_prefix = "unsorted_generated_";
 	private static final int _10K = 10000;
 	private static final int _100K = 100000;
-	private static final int _300K = 500000;
+	private static final int _200K = 200000;
+	private static final int _300K = 300000;
 	private static final int _500K = 500000;
 	private static final int _1M = 1000000;
 

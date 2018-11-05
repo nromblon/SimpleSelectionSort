@@ -98,17 +98,18 @@ public class ParallelSelectionExecutor implements Runnable {
 
 		this.initializeThreads(itemList, 0, this.getSplitCount());
 		
+		// CPU Usage (1)
+		OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
+		// MEMORY Usage (1)
+		Runtime runtime = Runtime.getRuntime();
+        System.gc();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
+
 		// SPEED Record
 		Stopwatch.start("Parallel executor");
 		
-		// MEMORY Usage (1)
-//		Runtime runtime = Runtime.getRuntime();
-//        System.gc();
-//        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-//        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
 
-		// MEMORY Usage (1)
-		OperatingSystemMXBean osBean = ManagementFactory.getOperatingSystemMXBean();
 
 		int currentMin = 0;
 		int size = itemList.size();;
@@ -135,24 +136,21 @@ public class ParallelSelectionExecutor implements Runnable {
 			currentMin = this.monitor.getCurrentMinIndex();
 			// Swap the selected local min here
 			swap(this.getItemList(), h, currentMin);
-			
-			
 		}
 
-		// MEMORY Usage (2)
-//		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-//        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
-//        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
-
-        // CPU Usage
-		General.printUsage(osBean);
-		
 		// SPEED Record
 		try {
 			Stopwatch.endAndPrint();
 		} catch (Exception e){
 			e.printStackTrace();
 		}
+		// MEMORY Usage (2)
+		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
+        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
+
+		// CPU Usage (2)
+		General.printUsage(osBean);
 
 		this.executor.shutdown();
 		
