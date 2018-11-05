@@ -15,13 +15,14 @@ public class Driver {
 	private static final String generated_name_prefix = "unsorted_generated_";
 	private static final int _10K = 10000;
 	private static final int _100K = 100000;
+	private static final int _500K = 500000;
 	private static final int _1M = 1000000;
 
-	private static final String filename = generated_name_prefix+_10K+".csv";
+	private static final String filename = generated_name_prefix+_100K+".csv";
 	
 	public static void main(String[] args) {
-        runParallel_executor();
-//        runSequential();
+//        runParallel_executor();
+        runSequential();
 	}
 	public static void runParallel_forkjoin(ArrayList<Integer> list){
 		ParallelSelectionForkJoin parallelSelectionForkJoin = new ParallelSelectionForkJoin();

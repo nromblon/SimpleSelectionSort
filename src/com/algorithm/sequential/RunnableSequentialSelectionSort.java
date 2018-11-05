@@ -69,7 +69,7 @@ public class RunnableSequentialSelectionSort implements Runnable {
 //        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
        
         // CPU Usage
-//        General.printUsage();
+        General.printUsage();
 
         // SPEED Record
         try {
