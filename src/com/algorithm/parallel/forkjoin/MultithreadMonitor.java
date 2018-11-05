@@ -1,4 +1,4 @@
-package com.algorithm.parallel.executor;
+package com.algorithm.parallel.forkjoin;
 
 import java.util.ArrayList;
 
@@ -10,9 +10,9 @@ public class MultithreadMonitor {
     private volatile int currentMinIndex;
     private volatile int currentMinValue;
 
-    private ParallelSelectionExecutor mainExecutor;
+    private ParallelSelectionForkJoin mainExecutor;
 
-    public MultithreadMonitor(ArrayList<RunnableSelectionExecutor> executors, ParallelSelectionExecutor executor){
+    public MultithreadMonitor(ArrayList<RunnableSelectionExecutor> executors, ParallelSelectionForkJoin executor){
         this.executors = executors;
         this.executorSize = executors.size();
         // Associate executors w/ this monitor
