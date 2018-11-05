@@ -45,7 +45,7 @@ public class RunnableSelectionExecutor implements Runnable {
 	
 	@Override
 	public void run() {
-//		System.out.println("Loc Min "+this.getStartIndex()+ "endIndex "+this.getEndIndex());
+		System.out.println("Starend "+this.getStartIndex()+ "endIndex "+this.getEndIndex());
 		this.setLocalMin(this.findLocalMinimum(this.getItemList(), this.getStartIndex(), this.getEndIndex()));
 //		this.monitor.setDone(true);
 		this.monitor.setDone(true, this.getLocalMin(), this.getItemList().get(this.getLocalMin()));
