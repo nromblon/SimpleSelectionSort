@@ -1,16 +1,20 @@
 package com.main;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Random;
 
 import com.algorithm.parallel.ParallelSelectionSort;
 import com.algorithm.parallel.executor.ParallelSelectionExecutor;
 import com.algorithm.parallel.lambda.ParallelSelectionLambda;
 import com.algorithm.sequential.RunnableSequentialSelectionSort;
 import com.reusables.CsvParser;
+import com.reusables.CsvWriter;
 
 public class Driver {
 //	private static String filename = "10000random.csv";
 	private static String filename = "UnknownRandom.csv";
-	
+	private static final String generated_name_prefix = "unsorted_generated_";
+
 	public static void main(String[] args) {
 
         runParallel_executor();
@@ -53,5 +57,16 @@ public class Driver {
         ArrayList<Integer> input = CsvParser.read(filename);
         runSeq.start(input);
 
+    }
+
+    public static ArrayList<Integer> generateRandom(int amount){
+        Random rand = new Random();
+        rand.setSeed(Instant.now().getEpochSecond());
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for(int i = 0; i<amount; i++){
+            numbers.add(rand.nextInt());
+        }
+        CsvWriter.write(numbers, generated_name_prefix+amount+".csv");
+        return numbers;
     }
 }
