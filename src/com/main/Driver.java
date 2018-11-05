@@ -19,10 +19,10 @@ public class Driver {
 	public static void main(String[] args) {
         ArrayList<Integer> input = generateRandom(10000);
 //		runParallel_forkjoin();
-//        runParallel_executor();
+        runParallel_executor();
 //        runParallel_lambda();
 //        System.out.println("\n\nStarting sequential...");
-        runSequential(input);
+//        runSequential(input);
 //        System.out.println("\n\nStarting parallel standard...");
 //        runParallel();
 	}
@@ -40,6 +40,12 @@ public class Driver {
     }
 	
 	public static void runParallel_executor(ArrayList<Integer> list){
+
+        ParallelSelectionExecutor parallelSelectionExecutor = new ParallelSelectionExecutor();
+        ArrayList<Integer> itemList = CsvParser.read(filename);
+        parallelSelectionExecutor.start(itemList, 2);
+    }
+	public static void runParallel_executor(){
 
         ParallelSelectionExecutor parallelSelectionExecutor = new ParallelSelectionExecutor();
         ArrayList<Integer> itemList = list;
