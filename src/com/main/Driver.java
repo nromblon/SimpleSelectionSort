@@ -17,7 +17,7 @@ public class Driver {
 	private static final String generated_name_prefix = "unsorted_generated_";
 
 	public static void main(String[] args) {
-        ArrayList<Integer> input = generateRandom(1000000);
+        ArrayList<Integer> input = generateRandom(10000);
 //		runParallel_forkjoin();
 //        runParallel_executor();
 //        runParallel_lambda();
@@ -70,7 +70,7 @@ public class Driver {
         }
         System.out.println("Input generation complete.");
         System.out.println("Writing into a file...");
-        CsvWriter.write(numbers, generated_name_prefix+amount+".csv");
+        CsvWriter.write(numbers, generated_name_prefix+amount);
         System.out.println("Write complete.\n==========================");
         return numbers;
     }
