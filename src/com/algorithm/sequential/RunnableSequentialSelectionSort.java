@@ -36,15 +36,14 @@ public class RunnableSequentialSelectionSort implements Runnable {
     
 	@Override
 	public void run() {
-//		System.out.println();
-//		System.out.println("SEQ: Process START");
-//		General.PRINT_TIME();
+		// SPEED Record
 		Stopwatch.start("Sequential");
-//		General.PRINT_TIME();
-        Runtime runtime = Runtime.getRuntime();
-        System.gc();
-        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
+		
+		// MEMORY Usage (1)
+//        Runtime runtime = Runtime.getRuntime();
+//        System.gc();
+//        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+//        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
 
         int n = list.size();
         // One by one move boundary of unsorted sublistay
@@ -63,19 +62,23 @@ public class RunnableSequentialSelectionSort implements Runnable {
             list.set(i,temp);
            
         }
-        
-//        System.out.println("SEQ: Process DONE");
-        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
-        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
+
+        // MEMORY Usage (2)
+//        long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+//        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
+//        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
+       
+        // CPU Usage
         General.printUsage();
-//		General.printUsage();
+
+        // SPEED Record
         try {
             Stopwatch.endAndPrint();
         } catch (Exception e){
             e.printStackTrace();
         }
-//		General.PRINT_TIME();
+        
+        // Print CSV
         CsvWriter.write(list);
 	}
 

@@ -91,14 +91,17 @@ public class ParallelSelectionExecutor implements Runnable {
 	
 	@Override
 	public void run() {
-		System.out.println();
-//		System.out.println("PAR_EXEC: Process START");
+
 		this.initializeThreads(itemList, 0, this.getSplitCount());
+		
+		// SPEED Record
 		Stopwatch.start("Parallel executor");
-		Runtime runtime = Runtime.getRuntime();
-        System.gc();
-        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
+		
+		// MEMORY Usage (1)
+//		Runtime runtime = Runtime.getRuntime();
+//        System.gc();
+//        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+//        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
       
 		int currentMin = 0;
 		int size = itemList.size();;
@@ -128,12 +131,16 @@ public class ParallelSelectionExecutor implements Runnable {
 			
 			
 		}
-//		System.out.println("PAR_EXEC: Process DONE");
-		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
-        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
 
-		General.printUsage();
+		// MEMORY Usage (2)
+//		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+//        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
+//        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
+
+        // CPU Usage
+//		General.printUsage();
+		
+		// SPEED Record
 		try {
 			Stopwatch.endAndPrint();
 		} catch (Exception e){
@@ -141,6 +148,8 @@ public class ParallelSelectionExecutor implements Runnable {
 		}
 
 		this.executor.shutdown();
+		
+		// Print CSV
 		CsvWriter.write(this.getItemList());
 	}
 	
