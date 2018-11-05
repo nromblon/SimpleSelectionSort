@@ -100,10 +100,10 @@ public class ParallelSelectionExecutor implements Runnable {
 		Stopwatch.start("Parallel executor");
 		
 		// MEMORY Usage (1)
-//		Runtime runtime = Runtime.getRuntime();
-//        System.gc();
-//        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
-//        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
+		Runtime runtime = Runtime.getRuntime();
+        System.gc();
+        long usedMemoryBefore = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("usedMemoryBefore: "+usedMemoryBefore);
       
 		int currentMin = 0;
 		int size = itemList.size();;
@@ -135,12 +135,12 @@ public class ParallelSelectionExecutor implements Runnable {
 		}
 
 		// MEMORY Usage (2)
-//		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
-//        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
-//        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
+		long usedMemoryAfter = runtime.totalMemory() - runtime.freeMemory();
+        System.out.println("usedMemoryAfter: "+usedMemoryAfter);
+        System.out.println("Memory increased:" + (long)((usedMemoryAfter-usedMemoryBefore)));
 
         // CPU Usage
-//		General.printUsage();
+		General.printUsage();
 		
 		// SPEED Record
 		try {
