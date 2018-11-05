@@ -85,7 +85,7 @@ public class Driver {
         rand.setSeed(Instant.now().getEpochSecond());
         ArrayList<Integer> numbers = new ArrayList<>();
         for(int i = 0; i<amount; i++){
-            numbers.add(Math.abs(rand.nextInt()));
+            numbers.add(Math.abs(rand.nextInt(100000000)));
         }
         System.out.println("Input generation complete.");
         System.out.println("Writing into a file...");

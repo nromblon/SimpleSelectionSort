@@ -3,12 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bd7a1b84-e447-404d-b5b8-92262886c3a1" name="Default Changelist" comment="Merge branch 'master' of https://github.com/nromblon/SimpleSelectionSort&#10;&#10;# Conflicts:&#10;#&#9;out/production/SimpleSelectionSort/com/main/Driver.class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV writer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV writer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SimpleSelectionSort/com/main/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleSelectionSort/com/main/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/main/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/main/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unsorted_generated_10000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/unsorted_generated_10000.csv" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="49" column="57" lean-forward="true" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
+            <state>
+              <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="77" column="59" selection-start-line="77" selection-start-column="59" selection-end-line="77" selection-end-column="59" />
+            <state relative-caret-position="125">
+              <caret line="24" column="20" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="20" />
               <folding>
                 <element signature="e#5943#5944#0" expanded="true" />
                 <element signature="e#5967#5968#0" expanded="true" />
@@ -122,11 +116,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="180" column="33" selection-start-line="180" selection-start-column="33" selection-end-line="180" selection-end-column="33" />
+            <state relative-caret-position="114">
+              <caret line="48" column="92" selection-start-line="48" selection-start-column="92" selection-end-line="48" selection-end-column="92" />
             </state>
           </provider>
         </entry>
@@ -147,7 +141,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="20">
-              <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="57" selection-end-column="13" />
+              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="57" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,6 +169,7 @@
       <find>.reset()</find>
       <find>reinitialize</find>
       <find>reset()</find>
+      <find>starend</find>
     </findStrings>
     <replaceStrings>
       <replace>list</replace>
@@ -202,9 +197,9 @@
         <option value="$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/MultithreadMonitor.java" />
         <option value="$PROJECT_DIR$/src/com/reusables/CsvWriter.java" />
+        <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" />
         <option value="$PROJECT_DIR$/src/com/main/Driver.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java" />
-        <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" />
       </list>
     </option>
   </component>
@@ -309,7 +304,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541419922748" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541420409084" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
@@ -413,7 +408,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.47234043" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3531915" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -594,30 +589,47 @@
     <entry file="file://$PROJECT_DIR$/unsorted_generated_1000.csv">
       <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
+    <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="49" column="57" lean-forward="true" selection-start-line="49" selection-start-column="57" selection-end-line="49" selection-end-column="57" />
+        <state relative-caret-position="20">
+          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="57" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/lambda/ParallelSelectionLambda.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="20">
-          <caret line="38" column="12" lean-forward="true" selection-start-line="38" selection-start-column="12" selection-end-line="57" selection-end-column="13" />
+        <state relative-caret-position="115">
+          <caret line="623" selection-start-line="623" selection-end-line="623" />
+          <folding>
+            <element signature="e#25341#25342#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="48" column="92" selection-start-line="48" selection-start-column="92" selection-end-line="48" selection-end-column="92" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="77" column="59" selection-start-line="77" selection-start-column="59" selection-end-line="77" selection-end-column="59" />
+        <state relative-caret-position="125">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="20" />
           <folding>
             <element signature="e#5943#5944#0" expanded="true" />
             <element signature="e#5967#5968#0" expanded="true" />
@@ -650,23 +662,6 @@
             <element signature="e#7049#7050#0" expanded="true" />
             <element signature="e#7069#7070#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="623" selection-start-line="623" selection-end-line="623" />
-          <folding>
-            <element signature="e#25341#25342#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="180" column="33" selection-start-line="180" selection-start-column="33" selection-end-line="180" selection-end-column="33" />
         </state>
       </provider>
     </entry>
