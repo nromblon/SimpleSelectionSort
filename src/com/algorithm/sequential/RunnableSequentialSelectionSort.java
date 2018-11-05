@@ -2,6 +2,7 @@ package com.algorithm.sequential;
 
 import java.util.ArrayList;
 
+import com.reusables.CsvWriter;
 import com.reusables.General;
 import com.reusables.Stopwatch;
 
@@ -75,6 +76,7 @@ public class RunnableSequentialSelectionSort implements Runnable {
             e.printStackTrace();
         }
 //		General.PRINT_TIME();
+        CsvWriter.write(list);
 	}
 
 	public ArrayList<Integer> getList() {
