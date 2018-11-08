@@ -27,8 +27,8 @@ public class Driver {
 	private static final String filename = generated_name_prefix+_10K+".csv";
 	
 	public static void main(String[] args) {
-//        runParallel_executor();
-        runSequential();
+        runParallel_executor();
+//        runSequential();
 	}
 	
 	public static void runParallel_forkjoin(ArrayList<Integer> list){
