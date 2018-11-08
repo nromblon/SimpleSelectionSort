@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd7a1b84-e447-404d-b5b8-92262886c3a1" name="Default Changelist" comment="Merge branch 'master' of https://github.com/nromblon/SimpleSelectionSort&#10;&#10;# Conflicts:&#10;#&#9;out/production/SimpleSelectionSort/com/main/Driver.class">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CSV writer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV writer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SimpleSelectionSort/com/main/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SimpleSelectionSort/com/main/Driver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/main/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/main/Driver.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,12 +53,12 @@
         <counts>
           <entry key="10000random" value="1" />
           <entry key="dummy" value="27" />
-          <entry key="java" value="9260" />
+          <entry key="java" value="9261" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9260" />
+          <entry key="JAVA" value="9261" />
           <entry key="PLAIN_TEXT" value="28" />
         </counts>
       </usages-collector>
@@ -67,11 +67,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-53">
-              <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
+            <state>
+              <caret column="17" selection-start-column="17" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -88,11 +88,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="469">
-              <caret line="71" column="24" lean-forward="true" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+              <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -189,9 +189,9 @@
         <option value="$PROJECT_DIR$/src/com/algorithm/sequential/RunnableSequentialSelectionSort.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/MultithreadMonitor.java" />
         <option value="$PROJECT_DIR$/src/com/reusables/CsvWriter.java" />
-        <option value="$PROJECT_DIR$/src/com/main/Driver.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/ParallelSelectionExecutor.java" />
         <option value="$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java" />
+        <option value="$PROJECT_DIR$/src/com/main/Driver.java" />
       </list>
     </option>
   </component>
@@ -296,7 +296,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541647126088" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541647194916" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -400,7 +400,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32907802" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.1447178" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49932885" visible="true" weight="0.3429812" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -595,16 +595,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-53">
-          <caret line="34" column="41" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/ParallelSelectionSort.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -625,7 +615,17 @@
     <entry file="file://$PROJECT_DIR$/src/com/algorithm/parallel/executor/RunnableSelectionExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="469">
-          <caret line="71" column="24" lean-forward="true" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+          <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/main/Driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="17" selection-start-column="17" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
